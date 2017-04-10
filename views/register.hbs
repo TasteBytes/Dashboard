@@ -1,6 +1,6 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <form class="ui large form">
+        <form class="ui large form" action="createuser" method="post">
             <div class="ui stacked segment">
                 <h2 class="ui teal image header">
                     <div class="content">
@@ -10,7 +10,7 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="fullname" placeholder="Full Name">
+                        <input type="text" name="name" placeholder="Full Name">
                     </div>
                 </div>
                 <div class="field">
@@ -25,7 +25,7 @@
                         <input type="password" name="password" placeholder="Password">
                     </div>
                 </div>
-                <div class="ui fluid large teal submit button">Continue</div>
+                <input type="submit" class="ui fluid large teal submit button" value="Continue"></input>
             </div>
             <div class="ui error message"></div>
         </form>
