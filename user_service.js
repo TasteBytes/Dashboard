@@ -1,6 +1,6 @@
-var firebase = require('firebase');
+const firebase = require('firebase');
 
-var config = {
+const config = {
   apiKey: "AIzaSyBrJDvsp_4dcQ8J5YJrFfQwI3-xHQnKGjs",
   authDomain: "tastebytes-e421e.firebaseapp.com",
   databaseURL: "https://tastebytes-e421e.firebaseio.com",
@@ -10,29 +10,41 @@ var config = {
 };
 
 firebaseRef = firebase.initializeApp(config);
-var auth = firebase.auth();
-var rootRef = firebase.database().ref();
+const auth = firebase.auth();
+const rootRef = firebase.database().ref();
+var signedIn = 'asdf';
+var userID = null;
 
-function createUser(email, password) {
-
-  createUserWithEmailAndPassword(email, password)
-  .catch(function(error) {
+function createUser(email, password, callback) {
+  auth.createUserWithEmailAndPassword(email, password).then(function(success) {
+    callback(success.code)
+  }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     callback(error);
   });
 }
-
 
 function signInUser(email, password, callback) {
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(email, password).then(function(success) {
+    signedIn = true;
+    callback(success.code);
+  }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     callback(error);
   });
 }
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log('user is signed in');
+  } else{
+    console.log('user is not signed in');
+  }
+});
 
 module.exports = {
 
