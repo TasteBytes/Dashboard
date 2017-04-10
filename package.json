@@ -1,0 +1,22 @@
+{
+  "name": "sampleapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "firebase": "^3.7.5",
+    "hbs": "~4.0.1",
+    "morgan": "~1.8.1",
+    "semantic-ui": "^2.2.10",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
