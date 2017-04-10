@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var userService = require('./user_service');
+
 var index = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
@@ -29,21 +31,38 @@ app.use('/downloads', downloads);
 app.use('/features', features);
 app.use('/login', login);
 app.use('/register', register);
+// app.user('/dashboard', dashboard)
 
-var userService = require('./user_service');
-//Create new user
-app.get('/signIn', function(req, res) {
 
-  var newUserEmail = req.query['user-email'];
-	var newUserPass = req.query['user-pass'];
-	userService.addUser(newUserEmail, newUserPass,
+//Create a new user
+app.post('/createuser', function(req, res) {
+  var UserName = req.body['name']
+  var UserEmail = req.body['email'];
+	var UserPass = req.body['password'];
+	userService.addUser(UserEmail, UserPass,
+		function(error, uid) {
+			if (error) {
+				return res.status(500).send(error);
+			} else {
+				// return res.status(201).send({uid : uid});
+        return res.redirect('/downloads');
+		}
+	});
+});
+
+
+//Login the user
+app.post('/userlogin', function(req, res) {
+  var UserEmail = req.body['email'];
+	var UserPass = req.body['password'];
+	userService.authenticate(UserEmail, UserPass,
 		function(error, uid) {
 
 			if (error) {
-				return res.status(500).send('Error when creating user');
-
+				return res.status(500).send(error);
 			} else {
-				return res.status(201).send({uid : uid});
+				// return res.status(201).send({uid : uid});
+        return res.redirect('/downloads');
 		}
 	});
 });
