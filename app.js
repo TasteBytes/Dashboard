@@ -12,6 +12,7 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 var features = require('./routes/features');
 var downloads = require('./routes/downloads');
+var dashboard = require('./routes/dashboard');
 var app = express();
 
 // view engine setup
@@ -31,8 +32,7 @@ app.use('/downloads', downloads);
 app.use('/features', features);
 app.use('/login', login);
 app.use('/register', register);
-// app.user('/dashboard', dashboard)
-
+app.use('/dashboard', dashboard);
 
 //Create a new user
 app.post('/createuser', function(req, res) {
@@ -45,11 +45,10 @@ app.post('/createuser', function(req, res) {
 				return res.status(500).send(error);
 			} else {
 				// return res.status(201).send({uid : uid});
-        return res.redirect('/downloads');
+        return res.redirect('/');
 		}
 	});
 });
-
 
 //Login the user
 app.post('/userlogin', function(req, res) {
@@ -57,12 +56,23 @@ app.post('/userlogin', function(req, res) {
 	var UserPass = req.body['password'];
 	userService.authenticate(UserEmail, UserPass,
 		function(error, uid) {
+			if (error) {
+				return res.status(500).send(error);
+			} else {
+        return res.redirect('/dashboard');
+		}
+	});
+});
 
+//Login the user
+app.post('/userlogout', function(req, res) {
+	userService.signOut(
+		function(error, uid) {
 			if (error) {
 				return res.status(500).send(error);
 			} else {
 				// return res.status(201).send({uid : uid});
-        return res.redirect('/downloads');
+        return res.redirect('/');
 		}
 	});
 });
