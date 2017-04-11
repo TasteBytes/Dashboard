@@ -4,7 +4,11 @@
     <a class="item">Features</a>
     <a class="item">Download</a>
     <a class="item">Careers</a>
+    {{#if signedIn}}
+    <a class="item" href="/login">Logout</a>
+    {{else}}
     <a class="item" href="/login">Login</a>
+    {{/if}}
     <a class="item" href="/register">Signup</a>
 </div>
 
@@ -21,9 +25,17 @@
                 <a class="item" href="/features">Features</a>
                 <a class="active item" href="/downloads">Download</a>
                 <a class="item" href="#">Careers</a>
+                {{#if signedIn}}
+                <form action="userlogout" method="post" class="right item">
+                  <a class="ui inverted button" href="/dashboard">Dashboard</a>
+                  <input type="submit" class="ui inverted button" value="Logout" id="logoutBtn"></input>
+                </form>
+                {{else}}
                 <div class="right item">
-                    <a class="ui inverted button" href="/login">Log in</a>
+                    <a class="ui inverted button" href="/login">Login</a>
+                    <a class="ui inverted button" href="/register">Sign Up</a>
                 </div>
+                {{/if}}
             </div>
         </div>
     </div>

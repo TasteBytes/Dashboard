@@ -4,7 +4,11 @@
     <a class="item">Features</a>
     <a class="item">Download</a>
     <a class="item">Careers</a>
-    <a class="item" href="/login">Login</a>
+    {{#if signedIn}}
+        <a class="item" href="/">Logout</a>
+    {{else}}
+        <a class="item" href="/login">Login</a>
+    {{/if}}
     <a class="item" href="/register">Signup</a>
 </div>
 
@@ -21,9 +25,17 @@
                 <a class="active item" href="/features">Features</a>
                 <a class="item" href="/downloads">Download</a>
                 <a class="item" href="#">Careers</a>
-                <div class="right item">
-                    <a class="ui inverted button" href="/login">Log in</a>
-                </div>
+                {{#if signedIn}}
+                    <form action="userlogout" method="post" class="right item">
+                        <a class="ui inverted button" href="/dashboard">Dashboard</a>
+                        <input type="submit" class="ui inverted button" value="Logout" id="logoutBtn"></input>
+                    </form>
+                {{else}}
+                    <div class="right item">
+                      <a class="ui inverted button" href="/login">Login</a>
+                      <a class="ui inverted button" href="/register">Sign Up</a>
+                    </div>
+                {{/if}}
             </div>
         </div>
 
@@ -49,9 +61,9 @@
 <div class="ui vertical stripe segment" id="feature-container-even">
     <div class="ui middle aligned stackable grid container">
         <div class="row">
-          <div class="six wide left floated column">
-              <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
-          </div>
+            <div class="six wide left floated column">
+                <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+            </div>
             <div class="eight wide right floated column">
                 <h3 class="ui header">This is a feature #2</h3>
                 <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
