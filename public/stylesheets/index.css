@@ -136,3 +136,7 @@ body>.grid {
   background-image: url('../images/auth.jpg');
   background-size: contain;
 }
+
+#logoutBtn {
+  padding: .78571429em 1.5em .78571429em;
+}
