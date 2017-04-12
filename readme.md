@@ -2,10 +2,10 @@
 A simple Point-of-sale application and website built with **ExpressJS** and **NodeJS**. The app features a **Firebase** backend and authentication. Try the demo at <a href="https://tastebytes-e421e.appspot.com" target="_blank">tastebytes-e421e.appspot.com</a>.
 
 - ExpressJS `4.15.2`
-- Firebase SDK 3
+- Firebase SDK `3.7.5`
   - JSON Datastore
   - Simple email/password OAuth authentication. Support for Google/Twitter/Github possible later
-  - Google App Engine Hosting
+- Google App Engine Hosting
 - Semantic UI with SASS
 - Handlebars
 
