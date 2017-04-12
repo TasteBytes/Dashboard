@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "startDev": "nodemon ./bin/www"
+    "run": "nodemon ./bin/www",
+    "deploy": "gcloud app deploy"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
