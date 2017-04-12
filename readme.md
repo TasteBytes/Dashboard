@@ -1,4 +1,4 @@
-# Todo app with Angular2, AngularFire2, and Firebase SDK 3
+# Simple POS with ExpressJS, NodeJS and Firebase SDK 3
 A simple Point-of-sale application and website built with **ExpressJS** and **NodeJS**. The app features a **Firebase** backend and authentication. Try the demo at <a href="https://tastebytes-e421e.appspot.com" target="_blank">tastebytes-e421e.appspot.com</a>.
 
 - ExpressJS `4.15.2`
