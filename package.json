@@ -16,7 +16,8 @@
     "hbs": "~4.0.1",
     "morgan": "~1.8.1",
     "semantic-ui": "^2.2.10",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "useragent": "^2.1.13"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
