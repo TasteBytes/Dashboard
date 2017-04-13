@@ -35,15 +35,18 @@
                   <a class="ui inverted button" href="/login">Login</a>
                 </div>
                 {{/if}}
-
             </div>
         </div>
 
         <div class="ui text container">
-            <h1 class="ui inverted header">Project Title</h1>
+            <h1 class="ui inverted header">{{title}}</h1>
             <h2>All-in-one restaurant management and POS system built on cloud technologies.</h2>
-            <a href="/register"><div class="ui big primary button">Sign Up For Project Title<i class="right arrow icon"></i></div></a>
+            {{#if signedIn}}
             <a href="{{hostOS.download}}"><div class="ui big primary button">Download POS for {{hostOS.os}}<i class="right arrow icon"></i></div></a>
+            {{else}}
+            <a href="/register"><div class="ui big primary button">Sign Up For {{title}}<i class="right arrow icon"></i></div></a>
+            <a href="{{download}}"><div class="ui big primary button">Download POS for {{hostOS.os}}<i class="right arrow icon"></i></div></a>
+            {{/if}}
         </div>
 
     </div>
