@@ -10,6 +10,10 @@ A simple Point-of-sale application and website built with **ExpressJS** and **No
 - Handlebars
 
 
+CMPS 115 Class Files
+--------
+All class files can be found under the <a href="https://github.com/TasteBytes/dashboard/tree/master/CMPS115" target="_blank">CMPS115 folder</a>. 
+
 Quick Start
 -----------
 
@@ -36,6 +40,6 @@ Commands
 |Script|Description|
 |---|---|
 |`npm start`|Necessary command to deploy to google app engine.|
-|`npm run`|, Start the express server @ `localhost:3000`; watches for changes to re-run the server on change.|
+|`npm run`|Start the express server @ `localhost:3000`; watches for changes to re-run the server on change.|
 |`npm deploy`|Starts the deployment process to google app engine|
 |`npm test`|Run unit tests with Karma and Jasmine|
