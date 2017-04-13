@@ -4,18 +4,19 @@ var os = require('os');
 var userService = require('../user_service');
 
 var getHostOS = (() => {
-  var type = os.type();
+    var type = os.type();
     return {
         os: type,
         download: `https://github.com/${type}/downloadLink`
     }
 });
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     var hostOS = getHostOS();
     var signedIn = false;
-    if (userService.firebase.auth().currentUser != null){
+    if (userService.firebase.auth().currentUser != null) {
         signedIn = true;
     }
     res.render('index', {
