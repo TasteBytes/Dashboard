@@ -39,7 +39,7 @@ app.post('/createuser', function(req, res) {
   var UserName = req.body['name']
   var UserEmail = req.body['email'];
 	var UserPass = req.body['password'];
-	userService.addUser(UserEmail, UserPass,
+	userService.addUser(UserName, UserEmail, UserPass,
 		function(error, uid) {
 			if (error) {
 				return res.status(500).send(error);

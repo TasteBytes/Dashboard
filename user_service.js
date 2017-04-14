@@ -13,49 +13,62 @@ firebase.initializeApp(config);
 const auth = firebase.auth();
 const rootRef = firebase.database().ref();
 
-function createUser(email, password, callback) {
-    auth.createUserWithEmailAndPassword(email, password).then(function(success) {
-        callback(success.code)
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        callback(error);
+function writeUserData(userId, name, email) {
+    firebase.database().ref('users/' + userId).set({
+        fullname: name,
+        email: email,
     });
-}
-
-function signInUser(email, password, callback) {
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function(success) {
-        callback(success.code);
-    }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        callback(error);
-    });
-}
-
-function signOutUser(callback){
-  firebase.auth().signOut().then(function(success) { 
-    // Sign-out successful.
-    callback(success);
-  }).catch(function(error) {
-    // An error happened.
-    callback(error); 
-  });
-}
-
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        console.log('user is signed in');
-    } else {
-        console.log('user is not signed in');
+    firebase.database().ref('users/' + userId + '/menus').set({
+        breakfast: ['category1', 'category2'],
+        lunch: ['category1', 'category2'],
+        dinner: ['category1', 'category2'],
+        });
     }
-});
 
-module.exports = {
-    addUser: createUser,
-    authenticate: signInUser,
-    firebase: firebase,
-    signOut: signOutUser
-}
+    function createUser(name, email, password, callback) {
+        auth.createUserWithEmailAndPassword(email, password).then(function(success) {
+            writeUserData(auth.currentUser.uid, name, email)
+            callback(success.code)
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            callback(error);
+        });
+    }
+
+    function signInUser(email, password, callback) {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(function(success) {
+            callback(success.code);
+        }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            callback(error);
+        });
+    }
+
+    function signOutUser(callback) {
+        firebase.auth().signOut().then(function(success) { 
+            // Sign-out successful.
+            callback(success);
+        }).catch(function(error) {
+            // An error happened.
+            callback(error); 
+        });
+    }
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log('user is signed in');
+        } else {
+            console.log('user is not signed in');
+        }
+    });
+
+    module.exports = {
+        addUser: createUser,
+        authenticate: signInUser,
+        firebase: firebase,
+        signOut: signOutUser
+    }
