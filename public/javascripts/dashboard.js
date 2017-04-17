@@ -5,3 +5,14 @@ $('.context.example .ui.sidebar')
   })
   .sidebar('attach events', '.context.example .menu .item')
 ;
+
+$(document).ready(function(){
+    
+    
+    $('.secondary.menu .item').tab({history:false});
+    $('.tabular.menu .item').tab({history:false});
+});
+
+
+;
+
