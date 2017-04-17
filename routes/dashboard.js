@@ -2,6 +2,16 @@ var express = require('express');
 var router = express.Router();
 var userService = require('../user_service');
 
+async function getMenus(){
+  var menus;
+  await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus`)
+  .once('value')
+  .then((snapshot) => {
+    menus = snapshot.val();
+  })
+  return menus;
+};
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   var signedIn = false;
@@ -20,6 +30,12 @@ router.get('/', function(req, res, next) {
 router.get('/menus', function(req, res, next) {
   var signedIn = false;
   if (userService.firebase.auth().currentUser != null){
+    var menus = getMenus();
+    menus.then(menus => {
+      // This is the full menu node. Break it down and sent it to the template
+      console.log(menus)
+      menus.forEach(console.log)
+    })
     res.render('menus', {
       signedIn: signedIn,
       title: 'Dashboard - Menus',
