@@ -29,7 +29,7 @@
                     <a class="item" data-tab="first/b">1B</a>
                     <a class="item" data-tab="first/c">1C</a>
                 </div>
-                <div class="ui bottom attached active tab segment" data-tab="first/a">1A</div>
+                <div class="ui bottom attached active tab segment" data-tab="first/a"><button onclick="addItem()">+ item</button></div>
                 <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
                 <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
             </div>
@@ -55,4 +55,25 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="ui modal">
+  <div class="header">Add a new menu item</div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text">
+        <label>Price</label>
+        <input type="text">
+        <label>Description</label>
+        <input type="text">
+        <div class="ui buttons">
+          <button class="ui button" onclick="closeModal()">Cancel</button>
+          <div class="or"></div>
+          <button class="ui positive button" onclick="createAccordion();closeModal()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
