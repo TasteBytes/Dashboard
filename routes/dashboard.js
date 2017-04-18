@@ -32,18 +32,17 @@ router.get('/menus', function(req, res, next) {
     var menus;
     if (userService.firebase.auth().currentUser != null) {
         getMenus()
-        .then(menus => {
-            console.log(menus);
-            res.render('menus', {
-                signedIn: signedIn,
-                menus: menus,
-                title: 'Dashboard - Menus',
-                styles: ['index.css'],
-                javascript: ['dashboard.js']
+            .then(menus => {
+                console.log(menus);
+                res.render('menus', {
+                    signedIn: signedIn,
+                    menus: menus,
+                    title: 'Dashboard - Menus',
+                    styles: ['index.css'],
+                    javascript: ['dashboard.js']
+                })
             })
-        })
-    }
-    else {
+    } else {
         res.redirect('/');
     }
 });
