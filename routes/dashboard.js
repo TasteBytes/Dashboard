@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var userService = require('../user_service');
 
-async function getMenus(){
+function getMenus(callback){
   var menus;
-  await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus`)
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus`)
   .once('value')
   .then((snapshot) => {
     menus = snapshot.val();
+    callback(menus);
   })
-  return menus;
 };
 
 /* GET users listing. */
@@ -29,22 +29,21 @@ router.get('/', function(req, res, next) {
 
 router.get('/menus', function(req, res, next) {
   var signedIn = false;
+  var menus;
   if (userService.firebase.auth().currentUser != null){
-    var menus = getMenus();
-    menus.then(menus => {
-      // This is the full menu node. Break it down and sent it to the template
-      console.log(menus)
-      menus.forEach(console.log)
-    })
-    res.render('menus', {
-      signedIn: signedIn,
-      title: 'Dashboard - Menus',
-      styles: ['index.css'],
-      javascript: ['dashboard.js']
+    getMenus(function(menus){
+      console.log(menus);
+      res.render('menus', {
+        signedIn: signedIn,
+        menus: menus,
+        title: 'Dashboard - Menus',
+        styles: ['index.css'],
+        javascript: ['dashboard.js']
+      });
     });
-  } else {
-    res.redirect('/');
-  }
+    } else {
+      res.redirect('/');
+    }
 });
 
 router.get('/tables', function(req, res, next) {
