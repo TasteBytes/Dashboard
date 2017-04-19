@@ -38,7 +38,7 @@ router.get('/menus', function(req, res, next) {
                     signedIn: signedIn,
                     menus: menus,
                     title: 'Dashboard - Menus',
-                    styles: ['index.css'],
+                    styles: ['dashboard.css'],
                     javascript: ['dashboard.js']
                 })
             })
