@@ -20,7 +20,7 @@ Quick Start
 Ensure you have the latest version of node and npm installed. You can install these @ https://nodejs.org/en/
 
 ```shell
-$ git clone https://gitlab.com/tasteBytes/dashboard
+$ git clone https://github.com/tasteBytes/dashboard
 $ cd dashboard
 $ npm install
 $ npm run-script run
