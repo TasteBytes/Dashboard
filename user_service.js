@@ -19,7 +19,7 @@ function writeUserData(userId, name, email) {
         email: email,
     });
     firebase.database().ref('users/' + userId + '/menus').set( {
-        "breakfast": {
+        "Breakfast": {
             "Appetizers": [{
                 "Name": "AppetizerName",
                 "Description": "Description",
@@ -30,7 +30,7 @@ function writeUserData(userId, name, email) {
                 "Price": 1.50
             }],
         },
-        "lunch": {
+        "Lunch": {
             "Appetizers": [{
                 "Name": "AppetizerName",
                 "Description": "Description",
@@ -72,7 +72,7 @@ function writeUserData(userId, name, email) {
                 "Price": 1.50
             }]
         },
-        "dinner": {
+        "Dinner": {
             "Appetizers": [{
                 "Name": "AppetizerName",
                 "Description": "Description",
