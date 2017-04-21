@@ -24,6 +24,7 @@
                 <a class="item active" data-tab="first">Breakfast</a>
                 <a class="item" data-tab="second">Lunch</a>
                 <a class="item" data-tab="third">Dinner</a>
+                <a class="item"><button class="ui button" onclick="addMenu()">+</button></a>
             </div>
 
 
@@ -31,10 +32,10 @@
                 <div class="ui top attached tabular menu">
                     <a class="active item" data-tab="first/a">Appetizers</a>
                     <a class="item" data-tab="first/b">Drinks</a>
-                    <a class="item" data-tab="first/+"><button class="ui button" onclick="$('#MenuModal').modal('show')">+</button></a>
+                    <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory()">+</button></a>
                 </div>
-                <div class="ui bottom attached active tab segment" data-tab="first/a"><button class="ui button" onclick="$('#EntreeModal').modal('show');">+ item</button></div>
-                <div class="ui bottom attached tab segment" data-tab="first/b"><button class="ui button" onclick="$('#EntreeModal').modal('show');">+ item</button></div>
+                <div class="ui bottom attached active tab segment" data-tab="first/a"><button class="ui button" onclick="addEntree()">+ item</button></div>
+                <div class="ui bottom attached tab segment" data-tab="first/b"><button class="ui button" onclick="addEntree()">+ item</button></div>
             </div>
 
 
@@ -42,7 +43,7 @@
                 <div class="ui top attached tabular menu">
                     <a class="item active" data-tab="second/a">2A</a>
                 </div>
-                <div class="ui bottom attached tab segment active" data-tab="second/a"><button class="ui button" onclick="$('.ui.modal').modal('show');">+ item</button></div>
+                <div class="ui bottom attached tab segment active" data-tab="second/a"><button class="ui button" onclick="addEntree()">+ item</button></div>
             </div>
 
 
@@ -50,7 +51,7 @@
                 <div class="ui top attached tabular menu">
                     <a class="item active" data-tab="third/a">3A</a>
                 </div>
-                <div class="ui bottom attached tab segment active" data-tab="third/a"><button class="ui button" onclick="$('.ui.modal').modal('show');">+ item</button></div>
+                <div class="ui bottom attached tab segment active" data-tab="third/a"><button class="ui button" onclick="addEntree()">+ item</button></div>
             </div>
 
 
@@ -72,7 +73,7 @@
         <input type="text">
         <label>Description</label>
         <input type="text">
-        <div class="ui buttons">
+        <div class="ui buttons" style="padding-top:10px">
           <button class="ui button" onclick="closeModal()">Cancel</button>
           <div class="or"></div>
           <button class="ui positive button" onclick="closeModal()">Save</button>
@@ -90,11 +91,16 @@
         <label>Name</label>
         <input type="text">
           <div class="ui grid">
-            <div class="four wide column">test</div>
-            <div class="four wide column">et</div>
+            <div class="four wide column">
+                <label>Start</label>
+                <input type="time">
+            </div>
+            <div class="four wide column">
+                <label>End</label>
+                <input type="time">
+            </div>
           </div>
-
-        <div class="ui buttons">
+        <div class="ui buttons" style="padding-top:10px">
           <button class="ui button" onclick="closeModal()">Cancel</button>
           <div class="or"></div>
           <button class="ui positive button" onclick="closeModal()">Save</button>
@@ -103,3 +109,21 @@
     </div>
   </div>
 </div>
+
+<div class="ui modal" id="CategoryModal">
+  <div class="header">Add Category</div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text">
+        <div class="ui buttons" style="padding-top:10px">
+          <button class="ui button" onclick="closeModal()">Cancel</button>
+          <div class="or"></div>
+          <button class="ui positive button" onclick="closeModal()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

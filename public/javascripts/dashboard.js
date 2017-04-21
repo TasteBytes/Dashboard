@@ -12,7 +12,17 @@ $(document).ready(function(){
 });
 ;
 
+function addCategory(){
+    $('#CategoryModal').modal('show');
+}
 
+function addMenu(){
+    $('#MenuModal').modal('show');
+}
+
+function addEntree(){
+    $('#EntreeModal').modal('show');
+}
 
 
 function closeModal(){
