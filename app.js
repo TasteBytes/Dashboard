@@ -77,6 +77,22 @@ app.post('/userlogout', function(req, res) {
 	});
 });
 
+//add a new menu item
+app.post('/dashboard/addmenu', function(req, res) {
+  var menuName = req.body['MenuName'];
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus/${menuName}`).set({
+          "Appetizers": [{
+              "Name": "AppetizerName",
+              "Description": "Description",
+              "Price": 1.50
+          }, {
+              "Name": "Appetizer2Name",
+              "Description": "Description2",
+              "Price": 1.50
+          }],
+  })
+  return res.redirect('/dashboard/menus')
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

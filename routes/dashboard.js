@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('../user_service');
+var app = express();
 
 async function getMenus() {
     var menus;
@@ -74,5 +75,6 @@ router.get('/settings', function(req, res, next) {
         res.redirect('/');
     }
 });
+
 
 module.exports = router;
