@@ -26,6 +26,7 @@
                         <a class="item" data-tab={{@key}}>{{@key}}</a>
                     {{/if}}
                 {{/each}}
+                <a class="item"><button class="ui button" onclick="addMenu()">+</button></a>
             </div>
             {{#each menus}}
               {{#if @first}}
@@ -38,12 +39,13 @@
                             <a class="item" data-tab={{@../key}}/{{@key}}>{{@key}}</a>
                           {{/if}}
                         {{/each}}
+                        <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory()">+</button></a>
                     </div>
                     {{#each this}}
                       {{#if @first}}
-                      <div class="ui active bottom attached tab segment" data-tab={{@../key}}/{{@key}}>#{{@key}} info goes here...#</div>
+                      <div class="ui active bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
                       {{else}}
-                      <div class="ui bottom attached tab segment" data-tab={{@../key}}/{{@key}}>#{{@key}} info goes here...#</div>
+                      <div class="ui bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
                       {{/if}}
                     {{/each}}
                 </div>
@@ -57,12 +59,13 @@
                           <a class="item" data-tab={{@../key}}/{{@key}}>{{@key}}</a>
                         {{/if}}
                       {{/each}}
+                      <a class="item" data-tab={{@key}}><button class="ui button" onclick="addCategory()">+</button></a>
                   </div>
                   {{#each this}}
                     {{#if @first}}
-                    <div class="ui active bottom attached tab segment" data-tab={{@../key}}/{{@key}}>#{{@key}} info goes here...#</div>
+                    <div class="ui active bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
                     {{else}}
-                    <div class="ui bottom attached tab segment" data-tab={{@../key}}/{{@key}}>#{{@key}} info goes here...#</div>
+                    <div class="ui bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
                     {{/if}}
                   {{/each}}
               </div>
@@ -70,4 +73,72 @@
             {{/each}}
         </div>
     </div>
+</div>
+
+
+
+
+<div class="ui modal" id="EntreeModal">
+  <div class="header">Add Entree</div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text">
+        <label>Price</label>
+        <input type="text">
+        <label>Description</label>
+        <input type="text">
+        <div class="ui buttons" style="padding-top:10px">
+          <button class="ui button" onclick="closeModal()">Cancel</button>
+          <div class="or"></div>
+          <button class="ui positive button" onclick="closeModal()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal" id="MenuModal">
+  <div class="header">Add Menu</div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text">
+          <div class="ui grid">
+            <div class="four wide column">
+                <label>Start</label>
+                <input type="time">
+            </div>
+            <div class="four wide column">
+                <label>End</label>
+                <input type="time">
+            </div>
+          </div>
+        <div class="ui buttons" style="padding-top:10px">
+          <button class="ui button" onclick="closeModal()">Cancel</button>
+          <div class="or"></div>
+          <button class="ui positive button" onclick="closeModal()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal" id="CategoryModal">
+  <div class="header">Add Category</div>
+  <div class="content">
+    <div class="ui form">
+      <div class="field">
+        <label>Name</label>
+        <input type="text">
+        <div class="ui buttons" style="padding-top:10px">
+          <button class="ui button" onclick="closeModal()">Cancel</button>
+          <div class="or"></div>
+          <button class="ui positive button" onclick="closeModal()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

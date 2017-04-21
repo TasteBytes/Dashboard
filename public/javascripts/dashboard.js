@@ -7,12 +7,24 @@ $('.context.example .ui.sidebar')
 ;
 
 $(document).ready(function(){
-    
-    
     $('.secondary.menu .item').tab({history:false});
     $('.tabular.menu .item').tab({history:false});
 });
-
-
 ;
 
+function addCategory(){
+    $('#CategoryModal').modal('show');
+}
+
+function addMenu(){
+    $('#MenuModal').modal('show');
+}
+
+function addEntree(){
+    $('#EntreeModal').modal('show');
+}
+
+
+function closeModal(){
+    $('.ui.modal').modal('hide');
+}
