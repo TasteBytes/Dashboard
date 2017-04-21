@@ -18,42 +18,42 @@
     </div>
     <div class="pusher">
         <div class="ui basic segment">
-            
-            
+
+
             <div class="ui pointing secondary menu">
                 <a class="item active" data-tab="first">Breakfast</a>
                 <a class="item" data-tab="second">Lunch</a>
                 <a class="item" data-tab="third">Dinner</a>
             </div>
-            
-            
+
+
             <div class="ui tab segment active" data-tab="first">
                 <div class="ui top attached tabular menu">
                     <a class="active item" data-tab="first/a">Appetizers</a>
                     <a class="item" data-tab="first/b">Drinks</a>
-                    <a class="item" data-tab="first/+"><button class="ui button">+</button></a>
+                    <a class="item" data-tab="first/+"><button class="ui button" onclick="$('#MenuModal').modal('show')">+</button></a>
                 </div>
-                <div class="ui bottom attached active tab segment" data-tab="first/a"><button class="ui button" onclick="$('.ui.modal').modal('show');">+ item</button></div>
-                <div class="ui bottom attached tab segment" data-tab="first/b"><button class="ui button" onclick="$('.ui.modal').modal('show');">+ item</button></div>
+                <div class="ui bottom attached active tab segment" data-tab="first/a"><button class="ui button" onclick="$('#EntreeModal').modal('show');">+ item</button></div>
+                <div class="ui bottom attached tab segment" data-tab="first/b"><button class="ui button" onclick="$('#EntreeModal').modal('show');">+ item</button></div>
             </div>
-            
-            
+
+
             <div class="ui tab segment" data-tab="second">
                 <div class="ui top attached tabular menu">
                     <a class="item active" data-tab="second/a">2A</a>
                 </div>
                 <div class="ui bottom attached tab segment active" data-tab="second/a"><button class="ui button" onclick="$('.ui.modal').modal('show');">+ item</button></div>
             </div>
-            
-            
+
+
             <div class="ui tab segment" data-tab="third">
                 <div class="ui top attached tabular menu">
                     <a class="item active" data-tab="third/a">3A</a>
                 </div>
                 <div class="ui bottom attached tab segment active" data-tab="third/a"><button class="ui button" onclick="$('.ui.modal').modal('show');">+ item</button></div>
             </div>
-            
-            
+
+
         </div>
     </div>
 </div>
@@ -61,7 +61,7 @@
 
 
 
-<div class="ui modal">
+<div class="ui modal" id="EntreeModal">
   <div class="header">Add Entree</div>
   <div class="content">
     <div class="ui form">
@@ -82,7 +82,7 @@
   </div>
 </div>
 
-<div class="ui modal">
+<div class="ui modal" id="MenuModal">
   <div class="header">Add Menu</div>
   <div class="content">
     <div class="ui form">
@@ -93,7 +93,7 @@
             <div class="four wide column">test</div>
             <div class="four wide column">et</div>
           </div>
-        
+
         <div class="ui buttons">
           <button class="ui button" onclick="closeModal()">Cancel</button>
           <div class="or"></div>
@@ -103,6 +103,3 @@
     </div>
   </div>
 </div>
-
-
-
