@@ -19,16 +19,12 @@ router.get('/', function(req, res, next) {
 
 router.get('/menus', function(req, res, next) {
   var signedIn = false;
-  if (userService.firebase.auth().currentUser != null){
     res.render('menus', {
       signedIn: signedIn,
       title: 'Dashboard - Menus',
       styles: ['index.css'],
       javascript: ['dashboard.js']
     });
-  } else {
-    res.redirect('/');
-  }
 });
 
 router.get('/tables', function(req, res, next) {
