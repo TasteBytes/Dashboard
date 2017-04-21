@@ -24,7 +24,6 @@ function addEntree(){
     $('#EntreeModal').modal('show');
 }
 
-
 function closeModal(){
     $('.ui.modal').modal('hide');
 }
