@@ -12,15 +12,8 @@ $(document).ready(function(){
 });
 ;
 
-function addItem(){
-    $('.ui.modal').modal('show');
-}
 
-function createAccordion(){
-    $( '.ui button' ).before( 
-        "<p>accordion goes here</p>" 
-    );
-}
+
 
 function closeModal(){
     $('.ui.modal').modal('hide');
