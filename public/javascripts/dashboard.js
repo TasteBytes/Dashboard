@@ -12,16 +12,39 @@ $(document).ready(function(){
 });
 ;
 
+
+$(document).ready(function(){
+    $('.ui.accordion').accordion();
+});
+
 function addCategory(){
     $('#CategoryModal').modal('show');
+}
+function saveCategory(){
+
 }
 
 function addMenu(){
     $('#MenuModal').modal('show');
 }
+function saveMenu(){
+
+}
 
 function addEntree(){
     $('#EntreeModal').modal('show');
+}
+function saveEntree(){
+
+}
+function editEntree(){
+    console.log("edit");
+    event.stopPropagation();
+    $('#EditModal').modal('show');
+}
+function deleteEntree(){
+    console.log("delete");
+    event.stopPropagation();
 }
 
 function closeModal(){

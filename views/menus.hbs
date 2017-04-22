@@ -21,55 +21,111 @@
             <div class="ui pointing secondary menu">
                 {{#each menus}}
                     {{#if @first}}
-                        <a class="active item" data-tab={{@key}}>{{@key}}</a>
+                        <a class="active item" data-tab= {{@key}}>{{@key}}</a>
                     {{else}}
-                        <a class="item" data-tab={{@key}}>{{@key}}</a>
+                        <a class="item" data-tab= {{@key}}>{{@key}}</a>
                     {{/if}}
                 {{/each}}
                 <a class="item"><button class="ui button" onclick="addMenu()">+</button></a>
             </div>
             {{#each menus}}
-              {{#if @first}}
-                <div class="ui active tab segment" data-tab={{@key}}>
-                    <div class="ui top attached tabular menu">
+                {{#if @first}}
+                    <div class="ui active tab segment" data-tab= {{@key}}>
+                        <div class="ui top attached tabular menu">
+                            {{#each this}}
+                                {{#if @first}}
+                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                {{else}}
+                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                {{/if}}
+                            {{/each}}
+                            <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory()">+</button></a>
+                        </div>
                         {{#each this}}
-                          {{#if @first}}
-                              <a class="active item" data-tab={{@../key}}/{{@key}}>{{@key}}</a>
-                          {{else}}
-                            <a class="item" data-tab={{@../key}}/{{@key}}>{{@key}}</a>
-                          {{/if}}
+                            {{#if @first}}
+                                <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                            {{else}}
+                                <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                            {{/if}}
                         {{/each}}
-                        <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory()">+</button></a>
                     </div>
-                    {{#each this}}
-                      {{#if @first}}
-                      <div class="ui active bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
-                      {{else}}
-                      <div class="ui bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
-                      {{/if}}
-                    {{/each}}
-                </div>
-              {{else}}
-              <div class="ui tab segment" data-tab={{@key}}>
-                  <div class="ui top attached tabular menu">
-                      {{#each this}}
-                        {{#if @first}}
-                            <a class="active item" data-tab={{@../key}}/{{@key}}>{{@key}}</a>
-                        {{else}}
-                          <a class="item" data-tab={{@../key}}/{{@key}}>{{@key}}</a>
-                        {{/if}}
-                      {{/each}}
-                      <a class="item" data-tab={{@key}}><button class="ui button" onclick="addCategory()">+</button></a>
-                  </div>
-                  {{#each this}}
-                    {{#if @first}}
-                    <div class="ui active bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
-                    {{else}}
-                    <div class="ui bottom attached tab segment" data-tab={{@../key}}/{{@key}}><button class="ui button" onclick="addEntree()">+ item</button></div>
-                    {{/if}}
-                  {{/each}}
-              </div>
-              {{/if}}
+                {{else}}
+                    <div class="ui tab segment" data-tab= {{@key}}>
+                        <div class="ui top attached tabular menu">
+                            {{#each this}}
+                                {{#if @first}}
+                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                {{else}}
+                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                {{/if}}
+                            {{/each}}
+                            <a class="item" data-tab= {{@key}}><button class="ui button" onclick="addCategory()">+</button></a>
+                        </div>
+                        {{#each this}}
+                            {{#if @first}}
+                                <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                            {{else}}
+                                <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                {{/if}}
             {{/each}}
         </div>
     </div>
@@ -79,66 +135,66 @@
 
 
 <div class="ui modal" id="EntreeModal">
-  <div class="header">Add Entree</div>
-  <div class="content">
-    <form class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text">
-        <label>Price</label>
-        <input type="text">
-        <label>Description</label>
-        <input type="text">
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal()">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class="header">Add Entree</div>
+    <div class="content">
+        <form class="ui form">
+            <div class="field">
+                <label>Name</label>
+                <input type="text">
+                <label>Price</label>
+                <input type="text">
+                <label>Description</label>
+                <input type="text">
+                <div class="ui buttons" style="padding-top:10px">
+                    <button class="ui button" onclick="closeModal()">Cancel</button>
+                    <div class="or"></div>
+                    <button class="ui positive button" onclick="closeModal()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 <div class="ui modal" id="MenuModal">
-  <div class="header">Add Menu</div>
-  <div class="content">
-    <form class="ui form" action="addmenu" method="post">
-      <div class="field">
-        <label>Name</label>
-        <input type="text" name="MenuName">
-          <div class="ui grid">
-            <div class="four wide column">
-                <label>Start</label>
-                <input type="time">
+    <div class="header">Add Menu</div>
+    <div class="content">
+        <form class="ui form" action="addmenu" method="post">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="MenuName">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <label>Start</label>
+                        <input type="time">
+                    </div>
+                    <div class="four wide column">
+                        <label>End</label>
+                        <input type="time">
+                    </div>
+                </div>
+                <div class="ui buttons" style="padding-top:10px">
+                    <button class="ui button" onclick="closeModal()">Cancel</button>
+                    <div class="or"></div>
+                    <button class="ui positive button" onclick="closeModal()">Save</button>
+                </div>
             </div>
-            <div class="four wide column">
-                <label>End</label>
-                <input type="time">
-            </div>
-          </div>
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal()">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
+        </form>
+    </div>
 </div>
 
 <div class="ui modal" id="CategoryModal">
-  <div class="header">Add Category</div>
-  <div class="content">
-    <form class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text">
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal()">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class="header">Add Category</div>
+    <div class="content">
+        <form class="ui form">
+            <div class="field">
+                <label>Name</label>
+                <input type="text">
+                <div class="ui buttons" style="padding-top:10px">
+                    <button class="ui button" onclick="closeModal()">Cancel</button>
+                    <div class="or"></div>
+                    <button class="ui positive button" onclick="closeModal()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
