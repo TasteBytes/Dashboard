@@ -16,10 +16,11 @@ $(document).ready(function(){
     $('.ui.accordion').accordion();
 });
 
-function addCategory(y){
+//find out who called us and update CategoryModal with path info
+function addCategory(index){
     $('#CategoryModal').modal('show');
-    var x=$('#addCategoryButton'+y).attr('category');
-    $('#categoryModalInput').attr('value',x);
+    var category=$('#addCategoryButton'+index).attr('category');
+    $('#categoryModalInput').attr('value',category);
 }
 function saveCategory(){
 

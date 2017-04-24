@@ -94,7 +94,7 @@ app.post('/dashboard/addmenu', function(req, res) {
   return res.redirect('/dashboard/menus')
 });
 
-//add a new menu item
+//add a new category
 app.post('/dashboard/addcategory', function(req, res) {
   var menuName = req.body['MenuName'];
   var categoryName=req.body['CategoryName']
