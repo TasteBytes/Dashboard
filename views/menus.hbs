@@ -39,7 +39,7 @@
                                     <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
                                 {{/if}}
                             {{/each}}
-                            <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory()">+</button></a>
+                            <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory({{@index}})" id="addCategoryButton{{@index}}" category={{@key}}>+</button></a>
                         </div>
                         {{#each this}}
                             {{#if @first}}
@@ -87,7 +87,7 @@
                                     <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
                                 {{/if}}
                             {{/each}}
-                            <a class="item" data-tab= {{@key}}><button class="ui button" onclick="addCategory()">+</button></a>
+                            <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory({{@index}})" id="addCategoryButton{{@index}}" category={{@key}}>+</button></a>
                         </div>
                         {{#each this}}
                             {{#if @first}}
@@ -185,10 +185,11 @@
 <div class="ui modal" id="CategoryModal">
     <div class="header">Add Category</div>
     <div class="content">
-        <form class="ui form">
+        <form class="ui form" action="addcategory" method="post">
             <div class="field">
                 <label>Name</label>
-                <input type="text">
+                <input type="text" name="CategoryName">
+                <input type="hidden" name="MenuName" value="" id="categoryModalInput">
                 <div class="ui buttons" style="padding-top:10px">
                     <button class="ui button" onclick="closeModal()">Cancel</button>
                     <div class="or"></div>

@@ -94,6 +94,23 @@ app.post('/dashboard/addmenu', function(req, res) {
   return res.redirect('/dashboard/menus')
 });
 
+//add a new menu item
+app.post('/dashboard/addcategory', function(req, res) {
+  var menuName = req.body['MenuName'];
+  var categoryName=req.body['CategoryName']
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus/${menuName}/${categoryName}`).set(
+          [{
+              "Name": "AppetizerName",
+              "Description": "Description",
+              "Price": 1.50
+          }, {
+              "Name": "Appetizer2Name",
+              "Description": "Description2",
+              "Price": 1.50
+          }]
+  )
+  return res.redirect('/dashboard/menus')
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

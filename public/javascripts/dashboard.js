@@ -12,13 +12,14 @@ $(document).ready(function(){
 });
 ;
 
-
 $(document).ready(function(){
     $('.ui.accordion').accordion();
 });
 
-function addCategory(){
+function addCategory(y){
     $('#CategoryModal').modal('show');
+    var x=$('#addCategoryButton'+y).attr('category');
+    $('#categoryModalInput').attr('value',x);
 }
 function saveCategory(){
 
