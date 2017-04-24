@@ -19,8 +19,8 @@ $(document).ready(function(){
 //find out who called us and update CategoryModal with path info
 function addCategory(index){
     $('#CategoryModal').modal('show');
-    var category=$('#addCategoryButton'+index).attr('category');
-    $('#categoryModalInput').attr('value',category);
+    var path=$('#addCategoryButton'+index).attr('category');
+    $('#categoryModalInput').attr('value',path);
 }
 function saveCategory(){
 
@@ -33,8 +33,13 @@ function saveMenu(){
 
 }
 
-function addEntree(){
+function addEntree(menuIndex,pathIndex){
     $('#EntreeModal').modal('show');
+    var path=`addEntreeButton${menuIndex}l${pathIndex}`;
+    console.log(path);
+    var entreePath=$("#"+path).attr('entree');
+    console.log(entreePath);
+    $('#entreeModalInput').attr('value',entreePath);
 }
 function saveEntree(){
 

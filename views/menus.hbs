@@ -57,7 +57,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree({{@../index}},{{@index}})" id="addEntreeButton{{@../index}}l{{@index}}" entree={{@../key}}/{{@key}}>+ item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -73,7 +73,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree({{@../index}},{{@index}})" id="addEntreeButton{{@../index}}l{{@index}}" entree={{@../key}}/{{@key}}>+ item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
@@ -105,7 +105,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree({{@../index}},{{@index}})" id="addEntreeButton{{@../index}}l{{@index}}" entree={{@../key}}/{{@key}}>+ item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -121,7 +121,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree()">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree({{@../index}},{{@index}})" id="addEntreeButton{{@../index}}l{{@index}}" entree={{@../key}}/{{@key}}>+ item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
@@ -137,14 +137,15 @@
 <div class="ui modal" id="EntreeModal">
     <div class="header">Add Entree</div>
     <div class="content">
-        <form class="ui form">
+        <form class="ui form" action="addentree" method="post">
             <div class="field">
                 <label>Name</label>
-                <input type="text">
+                <input type="text" name="EntreeName">
                 <label>Price</label>
-                <input type="text">
+                <input type="text" name="EntreePrice">
                 <label>Description</label>
-                <input type="text">
+                <input type="text" name="EntreeDescription">
+                <input type="hidden" name="Path" value="" id="entreeModalInput">
                 <div class="ui buttons" style="padding-top:10px">
                     <button class="ui button" onclick="closeModal()">Cancel</button>
                     <div class="or"></div>

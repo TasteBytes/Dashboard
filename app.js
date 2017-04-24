@@ -111,6 +111,24 @@ app.post('/dashboard/addcategory', function(req, res) {
   )
   return res.redirect('/dashboard/menus')
 });
+
+//add a new entree
+app.post('/dashboard/addentree', function(req, res) {
+  var path = req.body['Path'];
+  var name = req.body['EntreeName'];
+  var price = req.body['EntreePrice'];
+  var description = req.body['EntreeDescription'];
+  //var key=userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus/${path}`).
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/menus/${path}`).push(
+          {
+              "Name": name,
+              "Description": description,
+              "Price": price
+          }
+  )
+  return res.redirect('/dashboard/menus')
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
