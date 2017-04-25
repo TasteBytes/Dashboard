@@ -22,10 +22,12 @@
                 {{#each menus}}
                     {{#if @first}}
                         <a class="active item" data-tab="{{@key}}">{{@key}}
+                          <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editMenu(this)" style="padding-left:5px"></i>
                           <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                         </a>
                     {{else}}
                         <a class="item" data-tab="{{@key}}">{{@key}}
+                          <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editMenu(this)" style="padding-left:5px"></i>
                           <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                         </a>
                     {{/if}}
@@ -39,10 +41,12 @@
                             {{#each this}}
                                 {{#if @first}}
                                     <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editCategory(this)" style="padding-left:5px"></i>
                                       <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                                     </a>
                                 {{else}}
                                     <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editCategory(this)" style="padding-left:5px"></i>
                                       <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                                     </a>
                                 {{/if}}
@@ -166,12 +170,12 @@
 </div>
 
 <div class="ui modal" id="MenuModal">
-    <div class="header">Add Menu</div>
+    <div class="header" id="editMenuTitle">Add Menu</div>
     <div class="content">
         <form class="ui form" action="addmenu" method="post">
             <div class="field">
                 <label>Name</label>
-                <input type="text" name="MenuName">
+                <input type="text" name="MenuName" id="editMenuName">
                 <div class="ui grid">
                     <div class="four wide column">
                         <label>Start</label>
