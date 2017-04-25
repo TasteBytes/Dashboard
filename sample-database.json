@@ -214,41 +214,50 @@
             "tables": {
                 "Indoor": [{
                         "numSeats": 3,
-                        "tableNumer": 1
+                        "tableNumber": 1,
+                        "type": "table"
                     },
                     {
                         "numSeats": 4,
-                        "tableNumer": 2
+                        "tableNumber": 2,
+                        "type": "booth"
                     },
                     {
                         "numSeats": 4,
-                        "tableNumer": 3
+                        "tableNumber": 3,
+                        "type": "booth"
                     }
                 ],
                 "Patio": [{
                         "numSeats": 4,
-                        "tableNumer": 4
+                        "tableNumber": 4,
+                        "type": "table"
                     },
                     {
                         "numSeats": 4,
-                        "tableNumer": 5
+                        "tableNumber": 5,
+                        "type": "table"
                     },
                     {
                         "numSeats": 4,
-                        "tableNumer": 6
+                        "tableNumber": 6,
+                        "type": "table"
                     }
                 ],
                 "Bar": [{
                         "numSeats": 1,
-                        "tableNumer": 7
+                        "tableNumber": 7,
+                        "type": "bar"
                     },
                     {
                         "numSeats": 1,
-                        "tableNumer": 8
+                        "tableNumber": 8,
+                        "type": "bar"
                     },
                     {
                         "numSeats": 1,
-                        "tableNumer": 9
+                        "tableNumber": 9,
+                        "type": "bar"
                     }
                 ]
 
