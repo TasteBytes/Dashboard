@@ -34,7 +34,6 @@ router.get('/menus', function(req, res, next) {
     if (userService.firebase.auth().currentUser != null) {
         getMenus()
             .then(menus => {
-                console.log(menus);
                 res.render('menus', {
                     signedIn: signedIn,
                     menus: menus,
