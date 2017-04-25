@@ -17,8 +17,8 @@ $(document).ready(function(){
 });
 
 //find out who called us and update CategoryModal with path info
-function addCategory(index){
-    var path= index.getAttribute("data-ref")
+function addCategory(category){
+    var path= category.getAttribute("data-ref")
     $('#categoryModalInput').attr('value',path);
     $('#CategoryModal').modal('show');
 }
@@ -33,13 +33,10 @@ function saveMenu(){
 
 }
 
-function addEntree(menuIndex,pathIndex){
+function addEntree(entree){
+    var path = entree.getAttribute("data-ref");
+    $('#entreeModalInput').attr('value', path);
     $('#EntreeModal').modal('show');
-    var path=`addEntreeButton${menuIndex}l${pathIndex}`;
-    console.log(path);
-    var entreePath=$("#"+path).attr('entree');
-    console.log(entreePath);
-    $('#entreeModalInput').attr('value',entreePath);
 }
 function saveEntree(){
 
