@@ -32,11 +32,11 @@
                         </a>
                     {{/if}}
                 {{/each}}
-                <a class="item"><button class="ui button" onclick="addMenu()">+</button></a>
+                <a class="item"><button class="ui button" onclick="addMenu()">+ Menu</button></a>
             </div>
             {{#each menus}}
                 {{#if @first}}
-                    <div class="ui active tab segment" data-tab= {{@key}}>
+                    <div class="ui active tab segment" data-tab="{{@key}}">
                         <div class="ui top attached tabular menu">
                             {{#each this}}
                                 {{#if @first}}
@@ -51,7 +51,7 @@
                                     </a>
                                 {{/if}}
                             {{/each}}
-                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+</button></a>
+                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
                         </div>
                         {{#each this}}
                             {{#if @first}}
@@ -69,7 +69,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -85,12 +85,12 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
                 {{else}}
-                    <div class="ui tab segment" data-tab= {{@key}}>
+                    <div class="ui tab segment" data-tab="{{@key}}">
                         <div class="ui top attached tabular menu">
                             {{#each this}}
                                 {{#if @first}}
@@ -103,7 +103,7 @@
                                     </a>
                                 {{/if}}
                             {{/each}}
-                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+</button></a>
+                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
                         </div>
                         {{#each this}}
                             {{#if @first}}
@@ -121,7 +121,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -137,7 +137,7 @@
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
