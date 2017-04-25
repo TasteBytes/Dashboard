@@ -129,6 +129,20 @@ app.post('/dashboard/addentree', function(req, res) {
   return res.redirect('/dashboard/menus')
 });
 
+app.post('/dashboard/deleteItem', function(req, res) {
+  var path = req.body['item'];
+  console.log(`The path is ${path}`)
+  userService.firebase.database().ref(`users/${userService.firebase.auth().currentUser.uid}/menus/${path}`)
+  .remove()
+  .then(function(){
+    console.log("successfully removed")
+  }).catch(function(err){
+    console.log(err)
+  });
+  return res.redirect('/dashboard/menus')
+
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
