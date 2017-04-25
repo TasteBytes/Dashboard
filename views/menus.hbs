@@ -58,14 +58,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -74,14 +74,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
@@ -110,14 +110,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -126,14 +126,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(hist)" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(hist)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
@@ -212,15 +212,20 @@
 
 <div class="ui basic modal" id="DeleteModal">
     <div class="ui icon header">
-        <i class="archive icon"></i>
+        <i class="trash icon"></i>
         <div id="deleteText"></div>
     </div>
-    <div class="actions" style="text-align:center;">
-        <div class="ui red basic cancel inverted button">
-            <i class="remove icon"></i> No
+    <form class="ui form" action="deleteItem" method="post" style="text-align:center;">
+        <div class="field">
+            <input name="item" id="deleteItem" value="" type="text" style="display:none">
+            <div class="actions">
+            <div class="ui red cancel basic inverted button" type="button">
+                <i class="remove icon"></i> No
+            </div>
+            <button class="ui green inverted button">
+                <i class="checkmark icon"></i> Yes
+            </button>
+          </div>
         </div>
-        <div class="ui green ok inverted button">
-            <i class="checkmark icon"></i> Yes
-        </div>
-    </div>
+    </form>
 </div>
