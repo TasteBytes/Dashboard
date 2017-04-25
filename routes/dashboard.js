@@ -64,8 +64,9 @@ router.get('/tables', function(req, res, next) {
             .then(tables => {
                 res.render('tables', {
                     signedIn: signedIn,
+                    tables: tables,
                     title: 'Dashboard - Tables',
-                    styles: ['index.css'],
+                    styles: ['dashboard.css'],
                     javascript: ['dashboard.js']
                 });
 
