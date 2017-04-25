@@ -23,11 +23,43 @@
   </div>
   <div class="pusher">
     <div class="ui basic segment">
-      <h3 class="ui header">Tables Content</h3>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
+      <div class="ui pointing secondary menu">
+          {{#each tables}}
+              {{#if @first}}
+                  <a class="active item" data-tab="{{@key}}">{{@key}}
+                    <!-- <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true"  style="padding-left:5px"></i>
+                    <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i> -->
+                  </a>
+              {{else}}
+                  <a class="item" data-tab="{{@key}}">{{@key}}
+                    <!-- <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true"  style="padding-left:5px"></i>
+                    <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i> -->
+                  </a>
+              {{/if}}
+          {{/each}}
+          <a class="item"><button class="ui button" onclick="addSeating()">+</button></a>
+      </div>
+      {{#each tables}}
+      {{#if @first}}
+        <div class="ui active tab segment" data-tab="{{@key}}">
+          {{#each this}}
+          Table Number: {{this.tableNumer}}
+          Can Seat: {{this.numSeats}}
+          <br>
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="ui tab segment" data-tab="{{@key}}">
+          {{#each this}}
+          Table Number: {{this.tableNumber}}
+          Can Seat: {{this.numSeats}}
+          <br>
+          {{/each}}
+        </div>
+      {{/if}}
+      {{/each}}
+
+
     </div>
   </div>
 </div>
