@@ -57,12 +57,17 @@ function deleteItem(item) {
     event.stopPropagation();
     var path = item.getAttribute("data-ref");
     $('#deleteText').text(`Are you sure you would like to delete ${path}`)
-    $('#DeleteModal').modal({
-            onApprove: function() {
-                window.alert('Make POST request here!');
-            }
-        })
-        .modal('show');
+    $('#deleteItem').attr("value", path)
+    $('#DeleteModal').modal('show');
+}
+
+function deleteEntree(entree) {
+    event.stopPropagation();
+    var ref = entree.getAttribute("data-ref");
+    var path = entree.getAttribute("data-path");
+    $('#deleteText').text(`Are you sure you would like to delete ${ref}`)
+    $('#deleteItem').attr("value", path)
+    $('#DeleteModal').modal('show');
 }
 
 function closeModal() {
