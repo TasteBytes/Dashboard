@@ -1,0 +1,258 @@
+{
+    "users": {
+        "O7j3R0kKZvWdUYwABcvoMLOXNbC3": {
+            "email": "admin@gmail.com",
+            "fullname": "Admin",
+            "menus": {
+                "adfafaw": {
+                    "Appetizers": [{
+                        "Description": "Description",
+                        "Name": "AppetizerName",
+                        "Price": 1.5
+                    }, {
+                        "Description": "Description2",
+                        "Name": "Appetizer2Name",
+                        "Price": 1.5
+                    }]
+                },
+                "menuName": {
+                    "Appetizers": [{
+                        "Description": "Description",
+                        "Name": "AppetizerName",
+                        "Price": 1.5
+                    }, {
+                        "Description": "Description2",
+                        "Name": "Appetizer2Name",
+                        "Price": 1.5
+                    }]
+                }
+            }
+        },
+        "chdawdZRbYVa1mCakwpGgrwSDNA2": {
+            "email": "password@gmail.com",
+            "fullname": "Password",
+            "menus": {
+                "Main": {
+                    "Smalls": [{
+                        "Description": "House marinated",
+                        "Name": "Castelvetrano Olives",
+                        "Price": 5.00
+                    }, {
+                        "Description": "Assorted & Seasonal vegetables",
+                        "Name": "House Pickles",
+                        "Price": 5.00
+                    }, {
+                        "Description": "Habanero agave vinaigrette, garlic breadcrumbs, pistachio",
+                        "Name": "Oven Roasted Broccolini",
+                        "Price": 8.00
+                    }, {
+                        "Description": "Smoked honey glaze, mint greek yogurt",
+                        "Name": "Chipotle Rubbed Pork Ribs",
+                        "Price": 12.00
+                    }, {
+                        "Description": "Fresh herbs & peppers, buttermilk herb sauce & jalepeño mignonette",
+                        "Name": "Wild Pacific Calamari",
+                        "Price": 12.00
+                    }],
+                    "Greens": [{
+                        "Description": "Young Geens, seasonal produce, herb ricotta, candied almonds & roasted shallot vinaigrette",
+                        "Name": "Farmers Market Salad",
+                        "Price": 18
+                    }, {
+                        "Description": "Butterleaf lettuce, grana padano crisp, fried capers & creamy house-made caesar dressing",
+                        "Name": "Caesar",
+                        "Price": 13
+                    }, {
+                        "Description": "Hydroponic butterleaf lettuce, shaved fennel, yuzu oil, warm goat cheese croquettes, walnut vinaigrette",
+                        "Name": "Seasonal Citrus Salad",
+                        "Price": 12
+                    }],
+                    "Meat & Cheese": [{
+                        "Description": "Chef selection of three or five cheeses, seasonal pairings & crostini",
+                        "Name": "Cheese Board",
+                        "Price": 15
+                    }, {
+                        "Description": "Tarragon aoli, cream cheese, fried caper, pickled shallot, grated egg & flatbread",
+                        "Name": "Smoked King Salmon Board",
+                        "Price": 16
+                    }],
+                    "Flatbreads": [{
+                        "Description": "Charred tomato sauce, fresh mozzarella, parmesan cheese, basil, oregano",
+                        "Name": "Cherry Tomato",
+                        "Price": 14
+                    }, {
+                        "Description": "Spiced delicata squash, cambozola cheese, toasted pecans, mint",
+                        "Name": "Roasted Fig",
+                        "Price": 15
+                    }, {
+                        "Description": "Heirloom potato & parsnip purée, grilled sweet- onion, smoked gouda, pickled romanesco",
+                        "Name": "Crispy Pork Belly",
+                        "Price": 15
+                    }],
+                    "Sandwiches & Pasta": [{
+                        "Description": "Marin French Brie, bacon, wild arugula dressed in lemon & olive oil and maple aioli, Gayle’s hoagie roll, served w/ a mixed green salad",
+                        "Name": "Niman Ranch Ham Sandwich",
+                        "Price": 13
+                    }, {
+                        "Description": "Buttermilk fried chicken breast, sharp cheddar, coleslaw, pickled onions, Gayle’s hamburger bun, served w/ a mixed green salad",
+                        "Name": "Chicken Sandwich",
+                        "Price": 12
+                    }, {
+                        "Description": "Sun-dried tomato cream, fresh basil, Ballerine pasta",
+                        "Name": "Sauteed Shrimp Pasta",
+                        "Price": 15
+                    }],
+                    "Mains": [{
+                        "Name": "Rainbow Trout",
+                        "Description": "Roasted trumpet mushrooms & sautéed frisée, shaved fennel, sorrel brown butter",
+                        "Price": 26
+                    }, {
+                        "Description": "Green peppercorn crust, black garlic green beans, gratin potatoes, whipped smoked cream",
+                        "Name": "Filet Mignon",
+                        "Price": 27
+                    }, {
+                        "Description": "Heirloom carrots, organic red flint polenta, port reduction, persillade",
+                        "Name": "Braised Lamb Shank",
+                        "Price": 15
+                    }, {
+                        "Description": "Grass Fed & Pasture Raised. Topped with lettuce, pickled onion, gayles challah bun, served w/fries",
+                        "Name": "House Ground Burger",
+                        "Price": 15,
+                        "AddOns": {
+                            "Irish Cheddar": 2,
+                            "Bacon": 2.5,
+                            "Blue Cheese": 2.5,
+                            "Avocado": 3.0,
+                            "Carmelized Onions": 2,
+                            "Mushrooms": 2
+                        }
+                    }],
+                    "Finish": [{
+                        "Name": "Dark Chocolate Pot De Creme",
+                        "Description": "Salted caramel sauce, house made snickerdoodle",
+                        "Price": 8
+                    }, {
+                        "Description": "Shortbread crust, almond whipped cream, blackberry balsamic sorbet",
+                        "Name": "Lemon Square",
+                        "Price": 8
+                    }, {
+                        "Description": "Vanilla bean, chocolate, Seasonal Sorbet (all made in house!)",
+                        "Name": "Ice Cream & Seasonal Sorbet",
+                        "Price": 2.5
+                    }]
+                },
+                "Drinks": {
+                    "Beer": [{
+                        "Description": "Cascade hops give this a smooth creamy balance & brilliant clarity",
+                        "Name": "West End Amber",
+                        "Price": null
+                    }, {
+                        "Description": "A malty english brown ale",
+                        "Name": "West End Dark",
+                        "Price": null
+                    }, {
+                        "Description": "This blonde ale has a pleasant, hoppy nose, balanced bitterness & smooth finish",
+                        "Name": "West End Gold",
+                        "Price": null
+                    }, {
+                        "Description": "A perfect california pale; dark straw color, crisp hops, gold malt finish",
+                        "Name": "West End Pale Ale",
+                        "Price": null
+                    }, {
+                        "Description": "Blonde ale w/ a touch of passion fruit. light & not too sweet",
+                        "Name": "West End Passion",
+                        "Price": null
+                    }, {
+                        "Description": "An american style wheat beer, half wheat and half barley malt",
+                        "Name": "West End Wheat",
+                        "Price": null
+                    }, {
+                        "Description": "Dry hopped with Equinox: smooth and pleasant with subdued bitterness and full flavor. 5% ABV/60 IBUs",
+                        "Name": "Hermitage 408 Session IPA ",
+                        "Price": null
+                    }, {
+                        "Description": "Gold Medal, California State Fair 2014: Pours thick, black, like molasses. Decent balance of black coffee and bittersweet chocolate, with some nice floral notes.",
+                        "Name": "Hermitage Ale Of The 2 Tun",
+                        "Price": null
+                    }, {
+                        "Description": "A dark, rich beer with with rich, complex ready notes and chocolate-like flavors.",
+                        "Name": "Hermitage Kreuz Dunkel ",
+                        "Price": null
+                    }],
+                    "Wine": [{
+                        "Description": null,
+                        "Name": "Cinnabar Mercury Rising",
+                        "Price": 10
+                    }, {
+                        "Description": null,
+                        "Name": "Bonny Doon Clos de Gilroy Grenache",
+                        "Price": 9
+                    }, {
+                        "Description": null,
+                        "Name": "Simi Cabernet Sauvignon",
+                        "Price": 10
+                    }, {
+                        "Description": null,
+                        "Name": "Mark West Pinot Noir",
+                        "Price": 7
+                    }, {
+                        "Description": null,
+                        "Name": "Mondai Fume Blanc",
+                        "Price": 9
+                    }, {
+                        "Description": null,
+                        "Name": "Simi Sauv Blanc",
+                        "Price": 8
+                    }, {
+                        "Description": null,
+                        "Name": "Estancia  Chardonnay",
+                        "Price": 7
+                    }]
+
+                }
+            },
+            "tables": {
+                "Indoor": [{
+                        "numSeats": 3,
+                        "tableNumer": 1
+                    },
+                    {
+                        "numSeats": 4,
+                        "tableNumer": 2
+                    },
+                    {
+                        "numSeats": 4,
+                        "tableNumer": 3
+                    }
+                ],
+                "Patio": [{
+                        "numSeats": 4,
+                        "tableNumer": 4
+                    },
+                    {
+                        "numSeats": 4,
+                        "tableNumer": 5
+                    },
+                    {
+                        "numSeats": 4,
+                        "tableNumer": 6
+                    }
+                ],
+                "Bar": [{
+                        "numSeats": 1,
+                        "tableNumer": 7
+                    },
+                    {
+                        "numSeats": 1,
+                        "tableNumer": 8
+                    },
+                    {
+                        "numSeats": 1,
+                        "tableNumer": 9
+                    }
+                ]
+
+            }
+        }
+    }
+}
