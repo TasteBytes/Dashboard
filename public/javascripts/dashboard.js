@@ -25,16 +25,9 @@ function addCategory(category) {
     $('#CategoryModal').modal('show');
 }
 
-function saveCategory() {
-
-}
 
 function addMenu() {
     $('#MenuModal').modal('show');
-}
-
-function saveMenu() {
-
 }
 
 function addEntree(entree) {
@@ -43,14 +36,26 @@ function addEntree(entree) {
     $('#EntreeModal').modal('show');
 }
 
-function saveEntree() {
-
-}
 
 function editEntree() {
     event.stopPropagation();
     console.log("edit");
     $('#EditModal').modal('show');
+}
+
+function editMenu(menu) {
+    event.stopPropagation();
+    $('#editMenuTitle').text(`Edit Menu -  ${menu.getAttribute('data-ref')}`)
+    $('#editMenuName').attr('value', menu.getAttribute("data-ref"));
+    $('#MenuModal').modal('show');
+}
+
+function editCategory(category) {
+    event.stopPropagation();
+    console.log('Editing the category')
+    // $('#editCategoryTitle').text(`Edit Category - ${category.getAttribute('data-ref')}`)
+    // $('#categoryModalInput').attr('value', category.getAttribute('data-ref'));
+    $('#CategoryModal').modal('show');
 }
 
 function deleteItem(item) {
