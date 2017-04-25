@@ -18,9 +18,9 @@ $(document).ready(function(){
 
 //find out who called us and update CategoryModal with path info
 function addCategory(index){
-    $('#CategoryModal').modal('show');
-    var path=$('#addCategoryButton'+index).attr('category');
+    var path= index.getAttribute("data-ref")
     $('#categoryModalInput').attr('value',path);
+    $('#CategoryModal').modal('show');
 }
 function saveCategory(){
 
@@ -49,7 +49,7 @@ function editEntree(){
     event.stopPropagation();
     $('#EditModal').modal('show');
 }
-function deleteEntree(){
+function deleteEntree(Entree){
     console.log("delete");
     event.stopPropagation();
 }
