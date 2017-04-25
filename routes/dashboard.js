@@ -13,6 +13,16 @@ async function getMenus() {
     return menus
 };
 
+async function getTables() {
+    var tables;
+    await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/tables`)
+        .once('value')
+        .then((snapshot) => {
+            tables = snapshot.val();
+        })
+    return tables
+};
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     var signedIn = false;
@@ -50,12 +60,16 @@ router.get('/menus', function(req, res, next) {
 router.get('/tables', function(req, res, next) {
     var signedIn = false;
     if (userService.firebase.auth().currentUser != null) {
-        res.render('tables', {
-            signedIn: signedIn,
-            title: 'Dashboard - Tables',
-            styles: ['index.css'],
-            javascript: ['dashboard.js']
-        });
+        getTables()
+            .then(tables => {
+                res.render('tables', {
+                    signedIn: signedIn,
+                    title: 'Dashboard - Tables',
+                    styles: ['index.css'],
+                    javascript: ['dashboard.js']
+                });
+
+            })
     } else {
         res.redirect('/');
     }
