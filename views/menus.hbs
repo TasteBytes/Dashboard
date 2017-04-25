@@ -21,9 +21,13 @@
             <div class="ui pointing secondary menu">
                 {{#each menus}}
                     {{#if @first}}
-                        <a class="active item" data-tab= {{@key}}>{{@key}}</a>
+                        <a class="active item" data-tab="{{@key}}">{{@key}}
+                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                        </a>
                     {{else}}
-                        <a class="item" data-tab= {{@key}}>{{@key}}</a>
+                        <a class="item" data-tab="{{@key}}">{{@key}}
+                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                        </a>
                     {{/if}}
                 {{/each}}
                 <a class="item"><button class="ui button" onclick="addMenu()">+</button></a>
@@ -34,9 +38,13 @@
                         <div class="ui top attached tabular menu">
                             {{#each this}}
                                 {{#if @first}}
-                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
                                 {{else}}
-                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
                                 {{/if}}
                             {{/each}}
                             <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+</button></a>
@@ -50,14 +58,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref={{@../key}}/{{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -66,14 +74,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref={{@../key}}/{{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
@@ -82,9 +90,13 @@
                         <div class="ui top attached tabular menu">
                             {{#each this}}
                                 {{#if @first}}
-                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
                                 {{else}}
-                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
                                 {{/if}}
                             {{/each}}
                             <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+</button></a>
@@ -98,14 +110,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" data-ref="{{@../key}}/{{key}}/{{this.Name}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref={{@../key}}/{{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
                             {{else}}
                                 <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                                     {{#each this}}
@@ -114,14 +126,14 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree(hist)" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" aria-hidden="true" onclick="deleteItem(hist)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
                                             </div>
                                         </div>
                                     {{/each}}
-                                    <button class="ui button" onclick="addEntree(this)" data-ref={{@../key}}/{{@key}}>+ item</button></div>
+                                    <button class="ui button" onclick="addEntree(this)" data-ref= {{@../key}} / {{@key}}>+ item</button></div>
                             {{/if}}
                         {{/each}}
                     </div>
@@ -130,9 +142,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 <div class="ui modal" id="EntreeModal">
     <div class="header">Add Entree</div>
@@ -198,5 +207,20 @@
                 </div>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="ui basic modal" id="DeleteModal">
+    <div class="ui icon header">
+        <i class="archive icon"></i>
+        <div id="deleteText"></div>
+    </div>
+    <div class="actions" style="text-align:center;">
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i> No
+        </div>
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i> Yes
+        </div>
     </div>
 </div>
