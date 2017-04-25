@@ -39,7 +39,7 @@
                                     <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
                                 {{/if}}
                             {{/each}}
-                            <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory({{@index}})" id="addCategoryButton{{@index}}" category={{@key}}>+</button></a>
+                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+</button></a>
                         </div>
                         {{#each this}}
                             {{#if @first}}
@@ -87,7 +87,7 @@
                                     <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
                                 {{/if}}
                             {{/each}}
-                            <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory({{@index}})" id="addCategoryButton{{@index}}" category={{@key}}>+</button></a>
+                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+</button></a>
                         </div>
                         {{#each this}}
                             {{#if @first}}
@@ -98,7 +98,7 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" data-ref="{{@../key}}/{{key}}/{{this.Name}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
@@ -114,7 +114,7 @@
                                                 <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
                                                 <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
 
-                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
+                                                <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree(hist)" style="padding-left:5px"></i>
                                             </div>
                                             <div class="content">
                                                 <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
