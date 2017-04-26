@@ -145,39 +145,39 @@
                     "Beer": [{
                         "Description": "Cascade hops give this a smooth creamy balance & brilliant clarity",
                         "Name": "West End Amber",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "A malty english brown ale",
                         "Name": "West End Dark",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "This blonde ale has a pleasant, hoppy nose, balanced bitterness & smooth finish",
                         "Name": "West End Gold",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "A perfect california pale; dark straw color, crisp hops, gold malt finish",
                         "Name": "West End Pale Ale",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "Blonde ale w/ a touch of passion fruit. light & not too sweet",
                         "Name": "West End Passion",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "An american style wheat beer, half wheat and half barley malt",
                         "Name": "West End Wheat",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "Dry hopped with Equinox: smooth and pleasant with subdued bitterness and full flavor. 5% ABV/60 IBUs",
                         "Name": "Hermitage 408 Session IPA ",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "Gold Medal, California State Fair 2014: Pours thick, black, like molasses. Decent balance of black coffee and bittersweet chocolate, with some nice floral notes.",
                         "Name": "Hermitage Ale Of The 2 Tun",
-                        "Price": null
+                        "Price": 7
                     }, {
                         "Description": "A dark, rich beer with with rich, complex ready notes and chocolate-like flavors.",
                         "Name": "Hermitage Kreuz Dunkel ",
-                        "Price": null
+                        "Price": 7
                     }],
                     "Wine": [{
                         "Description": null,
