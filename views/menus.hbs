@@ -19,61 +19,217 @@
     <div class="pusher">
         <div class="ui basic segment">
             <div class="ui pointing secondary menu">
-                <a class="item active" data-tab="first">First</a>
-                <a class="item" data-tab="second">Second</a>
-                <a class="item" data-tab="third">Third</a>
+                {{#each menus}}
+                    {{#if @first}}
+                        <a class="active item" data-tab="{{@key}}">{{@key}}
+                          <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editMenu(this)" style="padding-left:5px"></i>
+                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                        </a>
+                    {{else}}
+                        <a class="item" data-tab="{{@key}}">{{@key}}
+                          <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editMenu(this)" style="padding-left:5px"></i>
+                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                        </a>
+                    {{/if}}
+                {{/each}}
+                <a class="item"><button class="ui button" onclick="addMenu()">+ Menu</button></a>
             </div>
-            <div class="ui tab segment active" data-tab="first">
-                <div class="ui top attached tabular menu">
-                    <a class="active item" data-tab="first/a">1A</a>
-                    <a class="item" data-tab="first/b">1B</a>
-                    <a class="item" data-tab="first/c">1C</a>
-                </div>
-                <div class="ui bottom attached active tab segment" data-tab="first/a"><button onclick="addItem()">+ item</button></div>
-                <div class="ui bottom attached tab segment" data-tab="first/b">1B</div>
-                <div class="ui bottom attached tab segment" data-tab="first/c">1C</div>
-            </div>
-            <div class="ui tab segment" data-tab="second">
-                <div class="ui top attached tabular menu">
-                    <a class="item active" data-tab="second/a">2A</a>
-                    <a class="item" data-tab="second/b">2B</a>
-                    <a class="item" data-tab="second/c">2C</a>
-                </div>
-                <div class="ui bottom attached tab segment active" data-tab="second/a">2A</div>
-                <div class="ui bottom attached tab segment" data-tab="second/b">2B</div>
-                <div class="ui bottom attached tab segment" data-tab="second/c">2C</div>
-            </div>
-            <div class="ui tab segment" data-tab="third">
-                <div class="ui top attached tabular menu">
-                    <a class="item active" data-tab="third/a">3A</a>
-                    <a class="item" data-tab="third/b">3B</a>
-                    <a class="item" data-tab="third/c">3C</a>
-                </div>
-                <div class="ui bottom attached tab segment active" data-tab="third/a">3A</div>
-                <div class="ui bottom attached tab segment" data-tab="third/b">3B</div>
-                <div class="ui bottom attached tab segment" data-tab="third/c">3C</div>
-            </div>
+            {{#each menus}}
+                {{#if @first}}
+                    <div class="ui active tab segment" data-tab="{{@key}}">
+                        <div class="ui top attached tabular menu">
+                            {{#each this}}
+                                {{#if @first}}
+                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editCategory(this)" style="padding-left:5px"></i>
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+                                {{else}}
+                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true" onclick="editCategory(this)" style="padding-left:5px"></i>
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+                                {{/if}}
+                            {{/each}}
+                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
+                        </div>
+                        {{#each this}}
+                            {{#if @first}}
+                                <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+                            {{else}}
+                                <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                {{else}}
+                    <div class="ui tab segment" data-tab="{{@key}}">
+                        <div class="ui top attached tabular menu">
+                            {{#each this}}
+                                {{#if @first}}
+                                    <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+                                {{else}}
+                                    <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+                                {{/if}}
+                            {{/each}}
+                            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
+                        </div>
+                        {{#each this}}
+                            {{#if @first}}
+                                <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+                            {{else}}
+                                <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                                    {{#each this}}
+                                        <div class="ui accordion" id="AccordionTemplate">
+                                            <div class="title">
+                                                <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+                                                <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
+
+                                                <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(hist)" style="padding-left:5px"></i>
+                                            </div>
+                                            <div class="content">
+                                                <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                    <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                {{/if}}
+            {{/each}}
         </div>
     </div>
 </div>
 
-<div class="ui modal">
-  <div class="header">Add a new menu item</div>
-  <div class="content">
-    <div class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text">
-        <label>Price</label>
-        <input type="text">
-        <label>Description</label>
-        <input type="text">
-        <div class="ui buttons">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="createAccordion();closeModal()">Save</button>
-        </div>
-      </div>
+<div class="ui modal" id="EntreeModal">
+    <div class="header">Add Entree</div>
+    <div class="content">
+        <form class="ui form" action="addentree" method="post">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="EntreeName">
+                <label>Price</label>
+                <input type="text" name="EntreePrice">
+                <label>Description</label>
+                <input type="text" name="EntreeDescription">
+                <input type="hidden" name="Path" value="" id="entreeModalInput">
+                <div class="ui buttons" style="padding-top:10px">
+                    <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
+                    <div class="or"></div>
+                    <button class="ui positive button" onclick="closeModal()">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
-  </div>
+</div>
+
+<div class="ui modal" id="MenuModal">
+    <div class="header" id="editMenuTitle">Add Menu</div>
+    <div class="content">
+        <form class="ui form" action="addmenu" method="post">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="MenuName" id="editMenuName">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <label>Start</label>
+                        <input type="time">
+                    </div>
+                    <div class="four wide column">
+                        <label>End</label>
+                        <input type="time">
+                    </div>
+                </div>
+                <div class="ui buttons" style="padding-top:10px">
+                    <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
+                    <div class="or"></div>
+                    <button class="ui positive button" onclick="closeModal()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="ui modal" id="CategoryModal">
+    <div class="header">Add Category</div>
+    <div class="content">
+        <form class="ui form" action="addcategory" method="post">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="CategoryName">
+                <input type="hidden" name="MenuName" value="" id="categoryModalInput">
+                <div class="ui buttons" style="padding-top:10px">
+                    <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
+                    <div class="or"></div>
+                    <button class="ui positive button" onclick="closeModal()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="ui basic modal" id="DeleteModal">
+    <div class="ui icon header">
+        <i class="trash icon"></i>
+        <div id="deleteText"></div>
+    </div>
+    <form class="ui form" action="deleteItem" method="post" style="text-align:center;">
+        <div class="field">
+            <input name="item" id="deleteItem" value="" type="text" style="display:none">
+            <div class="actions">
+            <div class="ui red cancel basic inverted button" type="button">
+                <i class="remove icon"></i> No
+            </div>
+            <button class="ui green inverted button">
+                <i class="checkmark icon"></i> Yes
+            </button>
+          </div>
+        </div>
+    </form>
 </div>

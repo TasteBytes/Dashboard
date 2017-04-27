@@ -4,7 +4,6 @@ var os = require('os');
 var userService = require('../user_service');
 var useragent = require('useragent');
 
-
 var getHostOS = ((agent) => {
     var osType = agent.os.toString();
     if (osType.includes('Ubuntu')) {

@@ -18,11 +18,72 @@ function writeUserData(userId, name, email) {
         fullname: name,
         email: email,
     });
-    firebase.database().ref('users/' + userId + '/menus').set({
-        breakfast: ['category1', 'category2'],
-        lunch: ['category1', 'category2'],
-        dinner: ['category1', 'category2'],
-        });
+    firebase.database().ref('users/' + userId + '/menus').set( {
+        "Breakfast": {
+            "Appetizers": [{
+                "Name": "AppetizerName",
+                "Description": "Description",
+                "Price": 1.50
+            }, {
+                "Name": "Appetizer2Name",
+                "Description": "Description2",
+                "Price": 1.50
+            }],
+        },
+        "Lunch": {
+            "Appetizers": [{
+                "Name": "AppetizerName",
+                "Description": "Description",
+                "Price": 1.50
+            }, {
+                "Name": "Appetizer2Name",
+                "Description": "Description2",
+                "Price": 1.50
+            }, {
+                "Name": "Appetizer3Name",
+                "Description": "Description3",
+                "Price": 1.50
+            }],
+            "Sides": [{
+                "Name": "SidesName",
+                "Description": "Description",
+                "Price": 1.50
+            }, {
+                "Name": "SidesName",
+                "Description": "Description",
+                "Price": 1.50
+            }, {
+                "Name": "SidesName",
+                "Description": "Description",
+                "Price": 1.50
+            }],
+            "Sandwiches": [{
+                "Name": "SidesName",
+                "Description": "Description",
+                "Price": 1.50
+            }, {
+                "Name": "SidesName",
+                "Description": "Description",
+                "Price": 1.50
+            }],
+            "Pasta": [{
+                "Name": "SidesName",
+                "Description": "Description",
+                "Price": 1.50
+            }]
+        },
+        "Dinner": {
+            "Appetizers": [{
+                "Name": "AppetizerName",
+                "Description": "Description",
+                "Price": 1.50
+            }, {
+                "Name": "Appetizer2Name",
+                "Description": "Description2",
+                "Price": 1.50
+            }]
+        }
+    });
     }
 
     function createUser(name, email, password, callback) {
