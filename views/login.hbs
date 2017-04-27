@@ -10,13 +10,13 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address">
+                        <input type="email" name="email" placeholder="E-mail address" required="required"><!-- THIS IS FORM VALIDATION FOR EMAIL, MAKING THE type=email SHOULD DO THE TRICK, AND IT IS NOW REQUIRED AS WELL-->
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="password" placeholder="Password" pattern= ".{6,12}" required="required"><!-- THIS IS FORM VALIDATION FOR PASSWORDS, IT MAKES THE MIN LENGTH 6 AND THE MAX LENGTH 12. ALSO MAKES IT REQUIRED-->
                     </div>
                 </div>
                 <input type="submit" class="ui fluid large teal submit button" value="Login"></input>

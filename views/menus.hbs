@@ -153,11 +153,11 @@
         <form class="ui form" action="addentree" method="post">
             <div class="field">
                 <label>Name</label>
-                <input type="text" name="EntreeName">
+                <input type="text" name="EntreeName" maxLength="50" required="required"><!--ADDED FORM VALIDATION FOR NAME. LIMITED CHARACTERS TO 50 TO ADD A LIMITER AND MADE IT REQUIRED-->
                 <label>Price</label>
-                <input type="text" name="EntreePrice">
+                <input type="text" name="EntreePrice" pattern="\d+(\.\d{2})?" required="required"><!--ADDED FORM VALIDATION FOR PRICE. CHECKS FOR THE PROPER FORMAT AND NOW IS REQUIRED-->
                 <label>Description</label>
-                <input type="text" name="EntreeDescription">
+                <input type="text" name="EntreeDescription" maxLength="1200"><!--ADDED A RELATIVELY LARGE maxLength. I DO NOT BELIEVE THIS WAS SUPPOSED TO BE REQUIRED-->
                 <input type="hidden" name="Path" value="" id="entreeModalInput">
                 <div class="ui buttons" style="padding-top:10px">
                     <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
@@ -175,7 +175,7 @@
         <form class="ui form" action="addmenu" method="post">
             <div class="field">
                 <label>Name</label>
-                <input type="text" name="MenuName" id="editMenuName">
+                <input type="text" name="MenuName" maxLength="50" required="required" id="editMenuName"><!--ADDED FORM VALIDATION FOR MENUNAME. LIMITED CHARACTERS TO 50 TO ADD A LIMITER AND MADE IT REQUIRED-->
                 <div class="ui grid">
                     <div class="four wide column">
                         <label>Start</label>
@@ -202,7 +202,7 @@
         <form class="ui form" action="addcategory" method="post">
             <div class="field">
                 <label>Name</label>
-                <input type="text" name="CategoryName">
+                <input type="text" name="CategoryName" maxLength="50" required="required"><!--ADDED FORM VALIDATION FOR MENUNAME. LIMITED CHARACTERS TO 50 TO ADD A LIMITER AND MADE IT REQUIRED-->
                 <input type="hidden" name="MenuName" value="" id="categoryModalInput">
                 <div class="ui buttons" style="padding-top:10px">
                     <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
