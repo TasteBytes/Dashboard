@@ -27,17 +27,8 @@ $ npm run-script run
 ```
 The server will now be open at localhost:3000 and will restart with any changes to the project.
 
-## Deploying to Google App Engine
-#### Prerequisites:
-- Make sure that you have privilege to deploy
-- Install the Google Cloud SDK <a href="https://cloud.google.com/sdk/" target="_blank">Grab it here</a>
 
-```shell
-$ cd dashboard
-$ npm run-script deploy
-```
-
-This will deploy to google app engine @ <a href="https://tastebytes-e421e.appspot.com" target="_blank">tastebytes-e421e.appspot.com</a>.
+On Master push, the app will be updated @ <a href="https://tastebytes-dashboard.herokuapp.com" target="_blank">tastebytes-dashboard.herokuapp.com</a>.
 
 Commands
 --------
