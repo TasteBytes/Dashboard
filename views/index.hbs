@@ -24,7 +24,6 @@
                 <a class="active item" href="/">Home</a>
                 <a class="item" href="/features">Features</a>
                 <a class="item" href="/downloads">Download</a>
-                <a class="item" href="#">More</a>
                 {{#if signedIn}}
                   <form action="userlogout" method="post" class="right item">
                     <a class="ui inverted button" href="/dashboard">Dashboard</a>
@@ -39,13 +38,13 @@
         </div>
 
         <div class="ui text container">
-            <h1 class="ui inverted header">{{title}}</h1>
+            <h1 class="ui inverted header">TasteBytes Analytics</h1>
             <h2>All-in-one restaurant management and POS system built on cloud technologies.</h2>
             {{#if signedIn}}
             <a href="{{hostOS.download}}"><div class="ui big primary button">Download POS for {{hostOS.os}}<i class="right arrow icon"></i></div></a>
             {{else}}
+            <a href="/downloads"><div class="ui big primary button">Download our POS<i class="right arrow icon"></i></div></a>
             <a href="/register"><div class="ui big primary button">Sign Up For {{title}}<i class="right arrow icon"></i></div></a>
-            <a href="{{download}}"><div class="ui big primary button">Download POS for {{hostOS.os}}<i class="right arrow icon"></i></div></a>
             {{/if}}
         </div>
 
