@@ -122,7 +122,7 @@ body>.grid {
   min-height: 0vh;
 }
 
-#main-container, #footer-container, #features-container, #downloads-segment, #downloads-side-by-side, #downloads-container {
+#main-container, #footer-container-downloads, #footer-container, #features-container, #downloads-segment, #downloads-side-by-side, #downloads-container {
     background: #122942;
 }
 
@@ -146,4 +146,15 @@ body>.grid {
 
 #logoutBtn {
   padding: .78571429em 1.5em .78571429em;
+}
+
+.ui.grid>.row>.six.column {
+  padding-top: 6em;
+}
+
+#footer-container-downloads  {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
