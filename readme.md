@@ -1,4 +1,4 @@
-# Simple POS with ExpressJS, NodeJS and Firebase SDK 3
+# TasteBytes Dashboard with ExpressJS, NodeJS and Firebase SDK 3
 A simple Point-of-sale application and website built with **ExpressJS** and **NodeJS**. The app features a **Firebase** backend and authentication. View the current release at <a href="https://tastebytes-dashboard.herokuapp.com" target="_blank">https://tastebytes-dashboard.herokuapp.com</a>.
 
 - ExpressJS `4.15.2`
