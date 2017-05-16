@@ -7,13 +7,13 @@ var getHostOS = ((agent) => {
     var osType = agent.os.toString();
     if (osType.includes('Ubuntu')) {
       var os = 'Linux'
-      var osRelease = 'https://google.com'
+      var osRelease = 'https://github.com/Tastebytes/POS/releases/download/v0.0.1/Linux-x64.v0.0.1.zip'
     } else if (osType.includes('Mac OS')){
       var os = 'Mac'
-      var osRelease = 'https://github.com/Tastebytes/POS/releases/download/v0.0.1/OSX-v0.0.1.zip'
+      var osRelease = 'https://github.com/Tastebytes/POS/releases/download/v0.0.1/OSX.v0.0.1.zip'
     } else if (osType.includes('Windows')){
       var os = 'Windows'
-      var osRelease = 'https://github.com/Tastebytes/POS/releases/download/v0.0.1/Windows-v0.0.1.zip'
+      var osRelease = 'https://github.com/Tastebytes/POS/releases/download/v0.0.1/Windows.v0.0.1.zip'
     }
     return {
         os: os,
