@@ -12,6 +12,7 @@ $(document).ready(function() {
     $('.tabular.menu .item').tab({
         history: false
     });
+    $(".rating").rating();
 });;
 
 $(document).ready(function() {

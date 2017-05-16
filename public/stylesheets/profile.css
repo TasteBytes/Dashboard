@@ -11,7 +11,25 @@
     right: 10px;
 }
 
-.image-wrapper {
+.profile-image {
   position: relative;
-  top: 40px;
+  top: 4vh;
+  float: left;
+  border: 3px solid;
+}
+
+.profile-primary-information {
+  position: absolute;
+  bottom: 1vh;
+  float: left;
+
+}
+
+.profile-secondary-information {
+  position: relative;
+  padding-left: 2vh;
+  padding-right: 1vh;
+  float: right;
+
+
 }
