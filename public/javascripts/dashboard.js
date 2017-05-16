@@ -22,35 +22,20 @@ $(document).ready(function() {
 function addCategory(category) {
     var path = category.getAttribute("data-ref")
     $('#categoryModalInput').attr('value', path);
-$(document).ready(function(){
-    $('.ui.accordion').accordion();
-});
-
-
+    $('#CategoryModal').modal('show');
+}
 
 
 function addMenu() {
     $('#MenuModal').modal('show');
 }
 
-
 function addEntree(entree) {
     var path = entree.getAttribute("data-ref");
     $('#entreeModalInput').attr('value', path);
     $('#EntreeModal').modal('show');
 }
-function saveEntree(){
 
-}
-function editEntree(){
-    console.log("edit");
-    event.stopPropagation();
-    $('#EditModal').modal('show');
-}
-function deleteEntree(){
-    console.log("delete");
-    event.stopPropagation();
-}
 
 function editEntree() {
     event.stopPropagation();

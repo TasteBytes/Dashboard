@@ -1,5 +1,3 @@
-<script src="https://use.fontawesome.com/f40604ec3e.js"></script>
-
 <div class="ui bottom attached segment pushable">
     <div class="ui visible inverted labeled icon left inline vertical wide sidebar menu">
         <a class="item" href="/dashboard">
@@ -21,7 +19,6 @@
     <div class="pusher">
         <div class="ui basic segment">
             <div class="ui pointing secondary menu">
-<<<<<<< HEAD
                 {{#each menus}}
                     {{#if @first}}
                         <a class="active item" data-tab="{{@key}}">{{@key}}
@@ -36,57 +33,6 @@
                     {{/if}}
                 {{/each}}
                 <a class="item"><button class="ui button" onclick="addMenu()">+ Menu</button></a>
-=======
-                <a class="item active" data-tab="first">Breakfast</a>
-                <a class="item" data-tab="second">Lunch</a>
-                <a class="item" data-tab="third">Dinner</a>
-                <a class="item"><button class="ui button" onclick="addMenu()">+</button></a>
-            </div>
-
-
-            <div class="ui tab segment active" data-tab="first">
-                <div class="ui top attached tabular menu">
-                    <a class="active item" data-tab="first/a">Appetizers</a>
-                    <a class="item" data-tab="first/b">Drinks</a>
-                    <a class="item" data-tab="first/+"><button class="ui button" onclick="addCategory()">+</button></a>
-                </div>
-                <div class="ui bottom attached active tab segment" data-tab="first/a"><button class="ui button" onclick="addEntree()">+ item</button></div>
-                <div class="ui bottom attached tab segment" data-tab="first/b"><button class="ui button" onclick="addEntree()">+ item</button></div>
-                
-                
-                <div class="ui accordion" id="AccordionTemplate">
-                  <div class="title">
-                    <i class="dropdown icon"></i>
-                    Item - Price 
-                      <i href="javascript:void(0)" class="fa fa-pencil" aria-hidden="true" onclick="editEntree()" style="padding-left:5px"></i>
-                      
-                      <i class="fa fa-times" aria-hidden="true" onclick="deleteEntree()" style="padding-left:5px"></i>
-                  </div>
-                  <div class="content">
-                    <p class="transition visible" style="display: block !important;">DESCRIPTION GOES HERE</p>
-                  </div>
-                </div>
-
-                
-                
-            </div>
-
-
-            <div class="ui tab segment" data-tab="second">
-                <div class="ui top attached tabular menu">
-                    <a class="item active" data-tab="second/a">2A</a>
-                </div>
-                
-                <div class="ui bottom attached tab segment active" data-tab="second/a"><button class="ui button" onclick="addEntree()">+ item</button></div>
-            </div>
-
-
-            <div class="ui tab segment" data-tab="third">
-                <div class="ui top attached tabular menu">
-                    <a class="item active" data-tab="third/a">3A</a>
-                </div>
-                <div class="ui bottom attached tab segment active" data-tab="third/a"><button class="ui button" onclick="addEntree()">+ item</button></div>
->>>>>>> 9d7f35e08b7a177e34f3546469b6c2a4d30863ab
             </div>
             {{#each menus}}
                 {{#if @first}}
@@ -202,7 +148,6 @@
 </div>
 
 <div class="ui modal" id="EntreeModal">
-<<<<<<< HEAD
     <div class="header">Add Entree</div>
     <div class="content">
         <form class="ui form" action="addentree" method="post">
@@ -267,91 +212,6 @@
             </div>
         </form>
     </div>
-=======
-  <div class="header">Add Entree</div>
-  <div class="content">
-    <form class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text">
-        <label>Price</label>
-        <input type="text">
-        <label>Description</label>
-        <input type="text">
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal();saveEntree();">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="ui modal" id="MenuModal">
-  <div class="header">Add Menu</div>
-  <div class="content">
-    <form class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text">
-          <div class="ui grid">
-            <div class="four wide column">
-                <label>Start</label>
-                <input type="time">
-            </div>
-            <div class="four wide column">
-                <label>End</label>
-                <input type="time">
-            </div>
-          </div>
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal();saveMenu();">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="ui modal" id="CategoryModal">
-  <div class="header">Add Category</div>
-  <div class="content">
-    <form class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text">
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal();saveCategory();">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="ui modal" id="EditModal">
-  <div class="header">Edit Entree</div>
-  <div class="content">
-    <form class="ui form">
-      <div class="field">
-        <label>Name</label>
-        <input type="text" value="current name">
-        <label>Price</label>
-        <input type="text" value="current price">
-        <label>Description</label>
-        <input type="text" value="current description">
-        <div class="ui buttons" style="padding-top:10px">
-          <button class="ui button" onclick="closeModal()">Cancel</button>
-          <div class="or"></div>
-          <button class="ui positive button" onclick="closeModal();saveCategory();">Save</button>
-        </div>
-      </div>
-    </form>
-  </div>
->>>>>>> 9d7f35e08b7a177e34f3546469b6c2a4d30863ab
 </div>
 
 <div class="ui basic modal" id="DeleteModal">
