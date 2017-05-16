@@ -1,5 +1,5 @@
 # TasteBytes Dashboard with ExpressJS, NodeJS and Firebase SDK 3
-A simple Point-of-sale application and website built with **ExpressJS** and **NodeJS**. The app features a **Firebase** backend and authentication. View the current release at <a href="https://tastebytes-dashboard.herokuapp.com" target="_blank">https://tastebytes-dashboard.herokuapp.com</a>.
+A simple Point-of-sale application and website built with **ExpressJS** and **NodeJS**. The app features a **Firebase** backend and authentication. View the current release at <a href="https://tastebytes.herokuapp.com" target="_blank">https://tastebytes.herokuapp.com</a>.
 
 - ExpressJS `4.15.2`
 - Firebase SDK `3.7.5`
@@ -28,7 +28,7 @@ $ npm run dev
 The server will now be open at localhost:3000 and will restart with any changes to the project.
 
 
-On Master push, the app will be updated @ <a href="https://tastebytes-dashboard.herokuapp.com" target="_blank">https://tastebytes-dashboard.herokuapp.com</a>.
+On Master push, the app will be updated @ <a href="https://tastebytes.herokuapp.com" target="_blank">https://tastebytes.herokuapp.com</a>.
 
 Commands
 --------
