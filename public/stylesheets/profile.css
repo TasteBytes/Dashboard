@@ -1,0 +1,12 @@
+.profile-cover-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+}
+
+.profile-cover .media {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}

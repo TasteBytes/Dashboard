@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
         res.render('dashboard', {
             signedIn: signedIn,
             title: 'Dashboard - Profile',
-            styles: ['index.css'],
+            styles: ['profile.css'],
             javascript: ['dashboard.js']
         });
     } else {

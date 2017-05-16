@@ -29,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+// app.use(subdomain('dashboard', index))
 app.use('/downloads', downloads);
 app.use('/features', features);
 app.use('/login', login);
