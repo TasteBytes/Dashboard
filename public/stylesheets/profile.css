@@ -1,7 +1,7 @@
 .profile-cover-img {
     background-repeat: no-repeat;
     background-size: cover;
-    height: 350px;
+    height: 40vh;
 }
 
 .profile-cover .media {
@@ -13,16 +13,15 @@
 
 .profile-image {
   position: relative;
-  top: 4vh;
+  top: 0vh;
   float: left;
-  border: 3px solid;
 }
 
 .profile-primary-information {
   position: absolute;
   bottom: 1vh;
   float: left;
-
+  color: white
 }
 
 .profile-secondary-information {
@@ -30,4 +29,9 @@
   padding-left: 2vh;
   padding-right: 1vh;
   float: right;
+}
+
+#hours {
+  border: none;
+  border-collapse: collapse;
 }
