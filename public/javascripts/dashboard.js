@@ -13,6 +13,9 @@ $(document).ready(function() {
         history: false
     });
     $(".rating").rating();
+    $('#example3').calendar({
+      type: 'time'
+    });
 });;
 
 $(document).ready(function() {
