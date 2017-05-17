@@ -26,16 +26,16 @@ async function getTables() {
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     var signedIn = false;
-    if (userService.firebase.auth().currentUser != null) {
+    // if (userService.firebase.auth().currentUser != null) {
         res.render('dashboard', {
             signedIn: signedIn,
             title: 'Dashboard - Profile',
             styles: ['profile.css'],
-            javascript: ['dashboard.js']
+            javascript: ['dashboard.js', 'profile.js']
         });
-    } else {
-        res.redirect('/');
-    }
+    // } else {
+    //     res.redirect('/');
+    // }
 });
 
 router.get('/menus', function(req, res, next) {
