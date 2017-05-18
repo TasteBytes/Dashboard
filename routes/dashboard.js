@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
             signedIn: signedIn,
             title: 'Dashboard - Profile',
             styles: ['profile.css'],
-            javascript: ['dashboard.js', 'profile.js']
+            javascript: ['profile.js']
         });
     // } else {
     //     res.redirect('/');
@@ -49,7 +49,7 @@ router.get('/menus', function(req, res, next) {
                     menus: menus,
                     title: 'Dashboard - Menus',
                     styles: ['dashboard.css'],
-                    javascript: ['dashboard.js']
+                    javascript: ['menus.js']
                 })
             })
     } else {
@@ -67,7 +67,7 @@ router.get('/tables', function(req, res, next) {
                     tables: tables,
                     title: 'Dashboard - Tables',
                     styles: ['dashboard.css'],
-                    javascript: ['dashboard.js']
+                    javascript: []
                 });
 
             })
@@ -83,7 +83,7 @@ router.get('/settings', function(req, res, next) {
             signedIn: signedIn,
             title: 'Dashboard - Settings',
             styles: [],
-            javascript: ['dashboard.js']
+            javascript: []
         });
     } else {
         res.redirect('/');
