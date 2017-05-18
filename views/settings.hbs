@@ -4,7 +4,7 @@
       <i class="home icon"></i>
       Profile
     </a>
-    <a class="item"  href="/dashboard/tables">
+    <a class="item" href="/dashboard/tables">
       <i class="block layout icon"></i>
       Tables
     </a>
@@ -23,65 +23,170 @@
   </div>
   <div class="pusher">
     <div class="ui basic segment">
-      <h3 class="ui header">Settings Content</h3>
-        <form class="ui form">
-                <div class="ui stackable three column grid content Grid">
-                                    <div class="two column row">
-                    <div class="column">
-                        <button class="ui button">Upload Logo</button>
-                        <br>
-                        <br>
-                        <button class="ui button">Upload Banner</button>
-                    </div>
-                    <div class="column">
-                          <div class="field">
-                            <label>Restaurant Name</label>
-                            <input name="restaurantName" type="text">
-                          </div>
-                          <div class="field">
-                            <label>Address</label>
-                            <input name="address" type="text">
-                          </div>
-                          <div class="field">
-                            <label>Phone Number</label>
-                            <input name="phone" type="text">
-                          </div>
-                          <div class="field">
-                            <label>Email</label>
-                            <input name="email" type="text">
-                          </div>
-                    </div>
-                </div>
-                
-                <div class="three column row">
-                    <div class="column">
-                        <br>
-                        <br>
-                        <p>test1</p>
-                    </div>
-                    <div class="column">
-                        <h3>Hours</h3>
-                        <p>to</p>
-                    </div>
-                    <div class="column">
-                        <br>
-                        <br>
-                        <p>test3</p>
-                    </div>
-                </div>  
-            
-            <div>
-                <p>ITEMS + CHECKBOXES GO HERE</p>
+      <h1 class="ui header">Settings</h1>
+      <form class="ui form">
+        <div class="ui grid">
+          <div class="seven wide floated column">
+            <div class="field">
+              <label>Restaurant Name</label>
+              <input name="restaurantName" type="text">
+            </div>
+            <div class="field">
+              <label>Address</label>
+              <input name="address" type="text">
+            </div>
+            <label>Phone Number</label>
+            <div class="inline fields">
+              <div class="field">
+                <input type="text" placeholder="(xxx)">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="xxx">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="xxxx">
+              </div>
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input name="email" type="text">
             </div>
           </div>
-          <h3>Time only</h3>
-  <div class="ui calendar" id="example3">
-    <div class="ui input left icon">
-      <i class="time icon"></i>
-      <input type="text" placeholder="Time">
+          <div class="three wide floated column">
+            <div class="row">
+              <b>Your Profile Picture</b>
+              <div class="ui medium image dimmable">
+                <div class="ui dimmer transition hidden" id="profile-image">
+                  <div class="content">
+                    <div class="center">
+                      <div class="ui button">Update Picture</div>
+                    </div>
+                  </div>
+                </div>
+                <img class="ui image dimmable" src="/images/default-user.jpg">
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <b>Your Cover Picture<b>
+              <div class="ui medium image dimmable">
+                <div class="ui dimmer transition hidden" id="cover-image">
+                  <div class="content">
+                    <div class="center">
+                      <div class="ui button">Update Cover</div>
+                    </div>
+                  </div>
+                </div>
+                <img class="ui image dimmable" src="/images/beer.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <h2>Restaurant Hours</h2>
+    <div class="ui grid">
+      <div class="seven column row">
+        <div class="column">
+          <h3>Sunday</h3>
+        11:30 am - 9:30 pm
+        <div class="ui calendar">
+          <div class="ui input left icon"  style="width:70%">
+            <i class="time icon"></i>
+            <input type="text" placeholder="Start Time" >
+          </div>
+          <br>
+          <div class="ui input left icon"  style="width:70%">
+            <i class="time icon"></i>
+            <input type="text" placeholder="End Time" >
+          </div>
+        </div>
+      </div>
+        <div class="column">
+    <h3>Monday</h3>
+          11:30 am - 9:30 pm
+          <div class="ui calendar">
+            <div class="ui input left icon"  style="width:70%">
+              <i class="time icon"></i>
+              <input type="text" placeholder="Start Time" >
+            </div>
+            <br>
+            <div class="ui input left icon"  style="width:70%">
+              <i class="time icon"></i>
+              <input type="text" placeholder="End Time" >
+            </div>
+          </div>
+        </div>
+        <div class="column">
+    <h3>Tuesday</h3>
+        11:30 am - 9:30 pm
+        <div class="ui calendar">
+          <div class="ui input left icon"  style="width:70%">
+            <i class="time icon"></i>
+            <input type="text" placeholder="Start Time" >
+          </div>
+          <br>
+          <div class="ui input left icon"  style="width:70%">
+            <i class="time icon"></i>
+            <input type="text" placeholder="End Time" >
+          </div>
+        </div>
+      </div>
+        <div class="column">
+          <h3>Wednesday</h3>
+          11:30 am - 9:30 pm
+          <div class="ui calendar">
+            <div class="ui input left icon"  style="width:70%">
+              <i class="time icon"></i>
+              <input type="text" placeholder="Start Time" >
+            </div>
+            <br>
+            <div class="ui input left icon"  style="width:70%">
+              <i class="time icon"></i>
+              <input type="text" placeholder="End Time" >
+            </div>
+          </div>
+        </div>
+        <div class="column">
+      <h3>Thursday</h3>
+        11:30 am - 10:00 pm
+        <div class="ui calendar">
+          <div class="ui input left icon"  style="width:70%">
+            <i class="time icon"></i>
+            <input type="text" placeholder="Start Time" >
+          </div>
+          <br>
+          <div class="ui input left icon"  style="width:70%">
+            <i class="time icon"></i>
+            <input type="text" placeholder="End Time" >
+          </div>
+        </div>
+      </div>
+        <div class="column">
+    <h3>Friday</h3>
+          11:30 am - 10:00 pm
+          <div class="ui calendar">
+            <div class="ui input left icon"  style="width:70%">
+              <i class="time icon"></i>
+              <input type="text" placeholder="Start Time" >
+            </div>
+            <br>
+            <div class="ui input left icon"  style="width:70%">
+              <i class="time icon"></i>
+              <input type="text" placeholder="End Time" >
+            </div>
+          </div>
+        </div>
+        <div class="column">
+      <h3>Saturday</h3>
+        11:30 am - 10:00 pm
+        <div class="ui button">
+          Add Hours
+        </div>
+      </div>
+      </div>
     </div>
   </div>
-        </form>
-    </div>
-  </div>
+</div>
 </div>
