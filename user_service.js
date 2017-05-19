@@ -121,9 +121,10 @@ function signOutUser(callback) {
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log('user is signed in');
+    // console.log('user is signed in');
+    // Can do something here.
   } else {
-    console.log('user is not signed in');
+    // console.log('user is not signed in');
   }
 });
 
