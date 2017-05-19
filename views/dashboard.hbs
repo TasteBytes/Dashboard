@@ -22,8 +22,17 @@
       <div class="media">
         <div class="ui grid">
           <div class="two wide floated column">
-            <div class="profile-image">
-              <img src="images/matthew2.png" class="ui medium rounded image">
+            <div class="ui medium image dimmable"  id="profile-image">
+              <div class="ui dimmer transition hidden">
+                <div class="content">
+                  <div class="center">
+                    <div class="ui button">Update Picture</div>
+                  </div>
+                </div>
+              </div>
+              <div class="profile-image">
+                <img class="ui medium rounded image dimmable" src="/images/logo.png">
+              </div>
             </div>
           </div>
           <div class="eight wide floated column">
@@ -42,6 +51,9 @@
                  </h3>
               </div>
             </div>
+          </div>
+          <div class="three wide floated column">
+            <div class="ui button" style="position:absolute;bottom:10%;right:0px">Update Cover Photo</div>
           </div>
         </div>
       </div>
