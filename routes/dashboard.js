@@ -82,7 +82,7 @@ router.get('/settings', function(req, res, next) {
         res.render('settings', {
             signedIn: signedIn,
             title: 'Dashboard - Settings',
-            styles: ['dashboard.css'],
+            styles: ['dashboard.css', 'settings.css'],
             javascript: ['settings.js']
         });
     // } else {
