@@ -1,66 +1,63 @@
-<div class="ui bottom attached segment pushable">
-  <div class="ui visible inverted labeled icon left inline vertical wide sidebar menu">
-    <a class="item" href="/dashboard">
-      <i class="home icon"></i>
-      Profile
-    </a>
-    <a class="item"  href="/dashboard/tables">
-      <i class="block layout icon"></i>
-      Tables
-    </a>
-    <a class="item" href="/dashboard/menus">
-      <i class="book icon"></i>
-      Menu
-    </a>
-    <a class="item" href="/dashboard/settings">
-      <i class="settings icon"></i>
-      Settings
-    </a>
-    <a class="item">
-      <i class="sign out icon"></i>
-      Logout
-    </a>
-  </div>
-  <div class="pusher">
-    <div class="ui basic segment">
-      <h1 class="ui header">Tables</h1>
-      <div class="ui divider"></div>
-      <div class="ui pointing secondary menu">
-          {{#each tables}}
-              {{#if @first}}
-                  <a class="active item" data-tab="{{@key}}">{{@key}}
-                    <!-- <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true"  style="padding-left:5px"></i>
-                    <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i> -->
-                  </a>
-              {{else}}
-                  <a class="item" data-tab="{{@key}}">{{@key}}
-                    <!-- <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true"  style="padding-left:5px"></i>
-                    <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i> -->
-                  </a>
-              {{/if}}
-          {{/each}}
-          <a class="item"><button class="ui button" onclick="addSeating()">+</button></a>
-      </div>
+<div class="ui visible inverted labeled icon left inline vertical wide sidebar menu">
+  <a class="item" href="/dashboard">
+    <i class="home icon"></i>
+    Profile
+  </a>
+  <a class="item" href="/dashboard/tables">
+    <i class="block layout icon"></i>
+    Tables
+  </a>
+  <a class="item" href="/dashboard/menus">
+    <i class="book icon"></i>
+    Menu
+  </a>
+  <a class="item" href="/dashboard/settings">
+    <i class="settings icon"></i>
+    Settings
+  </a>
+  <a class="item">
+    <i class="sign out icon"></i>
+    Logout
+  </a>
+</div>
+<div class="pusher">
+  <div class="ui basic segment">
+    <h1 class="ui header">Tables</h1>
+    <div class="ui divider"></div>
+    <div class="ui pointing secondary menu">
       {{#each tables}}
+        {{#if @first}}
+          <a class="active item" data-tab="{{@key}}">{{@key}}
+                    <!-- <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true"  style="padding-left:5px"></i>
+                    <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i> -->
+                  </a>
+        {{else}}
+          <a class="item" data-tab="{{@key}}">{{@key}}
+                    <!-- <i href="javascript:void(0)" data-ref="{{@key}}" class="fa fa-pencil" aria-hidden="true"  style="padding-left:5px"></i>
+                    <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i> -->
+                  </a>
+        {{/if}}
+      {{/each}}
+      <a class="item"><button class="ui button" onclick="addSeating()">+</button></a>
+    </div>
+    {{#each tables}}
       {{#if @first}}
         <div class="ui active tab segment" data-tab="{{@key}}">
           {{#each this}}
-          Table Number: {{this.tableNumber}}
-          Can Seat: {{this.numSeats}}
-          <br>
+            Table Number: {{this.tableNumber}} Can Seat: {{this.numSeats}}
+            <br>
           {{/each}}
         </div>
       {{else}}
         <div class="ui tab segment" data-tab="{{@key}}">
           {{#each this}}
-          Table Number: {{this.tableNumber}} - Can Seat: {{this.numSeats}}
-          <br>
+            Table Number: {{this.tableNumber}} - Can Seat: {{this.numSeats}}
+            <br>
           {{/each}}
         </div>
       {{/if}}
-      {{/each}}
+    {{/each}}
 
 
-    </div>
   </div>
 </div>

@@ -1,147 +1,145 @@
-<div class="ui bottom attached segment pushable">
-  <div class="ui visible inverted labeled icon left inline vertical wide sidebar menu">
-    <a class="item" href="/dashboard">
-      <i class="home icon"></i> Profile
-    </a>
-    <a class="item" href="/dashboard/tables">
-      <i class="block layout icon"></i> Tables
-    </a>
-    <a class="item" href="/dashboard/menus">
-      <i class="book icon"></i> Menu
-    </a>
-    <a class="item" href="/dashboard/settings">
-      <i class="settings icon"></i> Settings
-    </a>
-    <a class="item">
-      <i class="sign out icon"></i> Logout
-    </a>
-  </div>
-  <div class="pusher">
-    <div class="ui basic segment">
-      <h1 class="ui header">Menus</h1>
-      <div class="ui divider"></div>
-      <div class="ui pointing secondary menu">
-        {{#each menus}}
-          {{#if @first}}
-            <a class="active item" data-tab="{{@key}}">{{@key}}
-                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
-                        </a>
-          {{else}}
-            <a class="item" data-tab="{{@key}}">{{@key}}
-                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
-                        </a>
-          {{/if}}
-        {{/each}}
-        <a class="item"><button class="ui button" onclick="addMenu()">+ Menu</button></a>
-      </div>
+<div class="ui visible inverted labeled icon left inline vertical wide sidebar menu">
+  <a class="item" href="/dashboard">
+    <i class="home icon"></i> Profile
+  </a>
+  <a class="item" href="/dashboard/tables">
+    <i class="block layout icon"></i> Tables
+  </a>
+  <a class="item" href="/dashboard/menus">
+    <i class="book icon"></i> Menu
+  </a>
+  <a class="item" href="/dashboard/settings">
+    <i class="settings icon"></i> Settings
+  </a>
+  <a class="item">
+    <i class="sign out icon"></i> Logout
+  </a>
+</div>
+<div class="pusher">
+  <div class="ui basic segment">
+    <h1 class="ui header">Menus</h1>
+    <div class="ui divider"></div>
+    <div class="ui pointing secondary menu">
       {{#each menus}}
         {{#if @first}}
-          <div class="ui active tab segment" data-tab="{{@key}}">
-            <div class="ui top attached tabular menu">
-              {{#each this}}
-                {{#if @first}}
-                  <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
-                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
-                                    </a>
-                {{else}}
-                  <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
-                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
-                                    </a>
-                {{/if}}
-              {{/each}}
-              <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
-            </div>
-            {{#each this}}
-              {{#if @first}}
-                <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-                  {{#each this}}
-                    <div class="ui accordion" id="AccordionTemplate">
-                      <div class="title">
-                        <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
-
-
-                        <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
-                      </div>
-                      <div class="content">
-                        <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
-                      </div>
-                    </div>
-                  {{/each}}
-                  <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
-              {{else}}
-                <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-                  {{#each this}}
-                    <div class="ui accordion" id="AccordionTemplate">
-                      <div class="title">
-                        <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
-
-
-                        <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
-                      </div>
-                      <div class="content">
-                        <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
-                      </div>
-                    </div>
-                  {{/each}}
-                  <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
-              {{/if}}
-            {{/each}}
-          </div>
+          <a class="active item" data-tab="{{@key}}">{{@key}}
+                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                        </a>
         {{else}}
-          <div class="ui tab segment" data-tab="{{@key}}">
-            <div class="ui top attached tabular menu">
-              {{#each this}}
-                {{#if @first}}
-                  <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
-                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
-                                    </a>
-                {{else}}
-                  <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
-                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
-                                    </a>
-                {{/if}}
-              {{/each}}
-              <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
-            </div>
-            {{#each this}}
-              {{#if @first}}
-                <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-                  {{#each this}}
-                    <div class="ui accordion" id="AccordionTemplate">
-                      <div class="title">
-                        <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
-
-
-                        <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
-                      </div>
-                      <div class="content">
-                        <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
-                      </div>
-                    </div>
-                  {{/each}}
-                  <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
-              {{else}}
-                <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-                  {{#each this}}
-                    <div class="ui accordion" id="AccordionTemplate">
-                      <div class="title">
-                        <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
-
-
-                        <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(hist)" style="padding-left:5px"></i>
-                      </div>
-                      <div class="content">
-                        <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
-                      </div>
-                    </div>
-                  {{/each}}
-                  <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
-              {{/if}}
-            {{/each}}
-          </div>
+          <a class="item" data-tab="{{@key}}">{{@key}}
+                          <i class="fa fa-times" data-ref="{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                        </a>
         {{/if}}
       {{/each}}
+      <a class="item"><button class="ui button" onclick="addMenu()">+ Menu</button></a>
     </div>
+    {{#each menus}}
+      {{#if @first}}
+        <div class="ui active tab segment" data-tab="{{@key}}">
+          <div class="ui top attached tabular menu">
+            {{#each this}}
+              {{#if @first}}
+                <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+              {{else}}
+                <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+              {{/if}}
+            {{/each}}
+            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
+          </div>
+          {{#each this}}
+            {{#if @first}}
+              <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                {{#each this}}
+                  <div class="ui accordion" id="AccordionTemplate">
+                    <div class="title">
+                      <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+
+
+                      <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                    </div>
+                    <div class="content">
+                      <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                    </div>
+                  </div>
+                {{/each}}
+                <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+            {{else}}
+              <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                {{#each this}}
+                  <div class="ui accordion" id="AccordionTemplate">
+                    <div class="title">
+                      <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+
+
+                      <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                    </div>
+                    <div class="content">
+                      <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                    </div>
+                  </div>
+                {{/each}}
+                <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="ui tab segment" data-tab="{{@key}}">
+          <div class="ui top attached tabular menu">
+            {{#each this}}
+              {{#if @first}}
+                <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+              {{else}}
+                <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                      <i class="fa fa-times" data-ref="{{@../key}}/{{@key}}" aria-hidden="true" onclick="deleteItem(this)" style="padding-left:5px"></i>
+                                    </a>
+              {{/if}}
+            {{/each}}
+            <a class="item"><button class="ui button" onclick="addCategory(this)" data-ref={{@key}}>+ Category</button></a>
+          </div>
+          {{#each this}}
+            {{#if @first}}
+              <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                {{#each this}}
+                  <div class="ui accordion" id="AccordionTemplate">
+                    <div class="title">
+                      <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+
+
+                      <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(this)" style="padding-left:5px"></i>
+                    </div>
+                    <div class="content">
+                      <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                    </div>
+                  </div>
+                {{/each}}
+                <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+            {{else}}
+              <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                {{#each this}}
+                  <div class="ui accordion" id="AccordionTemplate">
+                    <div class="title">
+                      <i class="dropdown icon"></i> {{this.Name}} - {{this.Price}}
+
+
+                      <i class="fa fa-times" data-ref="{{@../../key}}/{{@../key}}/{{this.Name}}" data-path="{{@../../key}}/{{@../key}}/{{@index}}" aria-hidden="true" onclick="deleteEntree(hist)" style="padding-left:5px"></i>
+                    </div>
+                    <div class="content">
+                      <p class="transition visible" style="display: block !important;">{{this.Description}}</p>
+                    </div>
+                  </div>
+                {{/each}}
+                <button class="ui button" onclick="addEntree(this)" data-ref="{{@../key}}/{{@key}}">+ Item</button></div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
   </div>
 </div>
 
