@@ -1,4 +1,5 @@
-var control;
+var profile_image;
+var cover_image;
 
 $(document).ready(function() {
   $(".rating").rating();
@@ -6,8 +7,15 @@ $(document).ready(function() {
     .dimmer({
       on: 'hover'
     });
-  control = document.getElementById("profile-input");
-  control.addEventListener("change", function(event) {
+
+  profile_image = document.getElementById("profile-input");
+  profile_image.addEventListener("change", function(event) {
       document.getElementById("uploadProfileForm").submit();
   }, false);
+
+  cover_image = document.getElementById("cover-input");
+  cover_image.addEventListener("change", function(even){
+    document.getElementById("uploadCoverForm").submit();
+  }, false);
+
 });
