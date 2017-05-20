@@ -1,5 +1,10 @@
 const firebase = require('firebase');
 var storage = require('@google-cloud/storage')
+var gcsStorage = storage({
+  projectId: 'tastebytes-e421e',
+  keyFilename: 'service-account.json'
+});
+const gcsStorageRef = gcsStorage.bucket('tastebytes-e421e.appspot.com');
 
 const config = {
   apiKey: "AIzaSyBrJDvsp_4dcQ8J5YJrFfQwI3-xHQnKGjs",
@@ -13,10 +18,6 @@ const config = {
 firebase.initializeApp(config);
 const auth = firebase.auth();
 
-var gcsStorage = storage({
-  projectId: 'tastebytes-e421e',
-  keyFilename: 'service-account.json'
-});
 
 // Takes UserID, Name and email
 // Returns nothing
@@ -128,8 +129,7 @@ function signOutUser(callback) {
 }
 
 function uploadUserProfileImage(userID, file, callback) {
-  var ref = gcsStorage.bucket('tastebytes-e421e.appspot.com')
-  ref.upload(file, { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
+  gcsStorageRef.upload(file, { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
     callback(sucess.code)
   }).catch(function(error) {
     callback(error);
@@ -138,7 +138,7 @@ function uploadUserProfileImage(userID, file, callback) {
 
 function uploadUserCoverImage(userID, file, callback) {
   var ref = gcsStorage.bucket('tastebytes-e421e.appspot.com')
-  ref.upload(file, { destination: `${userID}/cover_image.jpg` }).then(function(sucess) {
+  gcsStorageRef.upload(file, { destination: `${userID}/cover_image.jpg` }).then(function(sucess) {
     callback(sucess.code)
   }).catch(function(error) {
     callback(error);
@@ -157,9 +157,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 module.exports = {
+  firebase: firebase,
+  firebaseStorage: gcsStorageRef,
   addUser: createUser,
   authenticate: signInUser,
-  firebase: firebase,
   signOut: signOutUser,
   uploadProfile: uploadUserProfileImage,
   uploadCover: uploadUserCoverImage
