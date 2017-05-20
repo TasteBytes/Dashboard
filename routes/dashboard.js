@@ -49,7 +49,7 @@ async function getCoverImageURL() {
   return coverURL;
 }
 
-async function getImagePair() {
+async function getProfileImages() {
   var imageObject = {}
   let [profileURL, coverURL] = await Promise.all([getProfileImageURL(), getCoverImageURL()]);
   imageObject.profileURL = profileURL;
@@ -57,15 +57,14 @@ async function getImagePair() {
   return imageObject
 }
 
-
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   var signedIn = false;
   if (userService.firebase.auth().currentUser != null) {
     // console.log(`profileURL is ${getProfileURL().then(console.log)}`);
     // var profileURL;s
-    getImagePair().then(images => {
-      res.render('dashboard', {
+    getProfileImages().then(images => {
+      res.render('dashboard/dashboard', {
         signedIn: signedIn,
         title: 'Dashboard - Profile',
         profileImage: images.profileURL,
@@ -87,7 +86,7 @@ router.get('/menus', function(req, res, next) {
   if (userService.firebase.auth().currentUser != null) {
     getMenus()
       .then(menus => {
-        res.render('menus', {
+        res.render('dashboard/menus', {
           signedIn: signedIn,
           menus: menus,
           title: 'Dashboard - Menus',
@@ -105,7 +104,7 @@ router.get('/tables', function(req, res, next) {
   if (userService.firebase.auth().currentUser != null) {
     getTables()
       .then(tables => {
-        res.render('tables', {
+        res.render('dashboard/tables', {
           signedIn: signedIn,
           tables: tables,
           title: 'Dashboard - Tables',
@@ -122,7 +121,7 @@ router.get('/tables', function(req, res, next) {
 router.get('/settings', function(req, res, next) {
   var signedIn = false;
   // if (userService.firebase.auth().currentUser != null) {
-  res.render('settings', {
+  res.render('dashboard/settings', {
     signedIn: signedIn,
     title: 'Dashboard - Settings',
     styles: ['dashboard.css', 'settings.css'],

@@ -10,11 +10,11 @@ var fileUpload = require('express-fileupload');
 
 var userService = require('./user_service');
 
-var index = require('./routes/index');
+var index = require('./routes/index/index');
+var features = require('./routes/index/features');
+var downloads = require('./routes/index/downloads');
 var login = require('./routes/login');
 var register = require('./routes/register');
-var features = require('./routes/features');
-var downloads = require('./routes/downloads');
 var dashboard = require('./routes/dashboard');
 var app = express();
 

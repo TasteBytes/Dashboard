@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userService = require('../user_service');
+var userService = require('../../user_service');
 var useragent = require('useragent');
 
 var getHostOS = ((agent) => {
@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
   if (userService.firebase.auth().currentUser != null){
       signedIn = true;
   }
-    res.render('downloads', {
+    res.render('index/downloads', {
         signedIn: signedIn,
         hostOS: hostOS,
         title: 'TasteBytes - Downloads',

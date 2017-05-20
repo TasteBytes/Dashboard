@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var userService = require('../user_service');
+var userService = require('../../user_service');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     if (userService.firebase.auth().currentUser != null) {
         signedIn = true;
     }
-    res.render('index', {
+    res.render('index/index', {
         signedIn: signedIn,
         logout: userService.signOut,
         title: 'TasteBytes',
