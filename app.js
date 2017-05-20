@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var subdomain = require('express-subdomain')
-const fileUpload = require('express-fileupload');
+var fileUpload = require('express-fileupload');
 
 
 var userService = require('./user_service');
@@ -104,6 +104,31 @@ app.post('/update-profile-image', function(req, res) {
       }
     })
   });
+});
+
+app.post('/update-cover-image', function (req, res) {
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files['cover-image'];
+  // console.log(sampleFile);
+  // Upload the user image to the firebase blob store.
+  var userID = userService.firebase.auth().currentUser.uid;
+  var filePath = path.join(__dirname, 'tmp/images/profile/', `${userID}-coverImage.jpg`)
+  sampleFile.mv(filePath, function(err) {
+    if (err)
+      return res.status(500).send(err);
+
+    userService.uploadCover(userID, filePath, function(error, response) {
+      if (error) {
+        return res.status(500).send(error);
+      } else {
+        return res.redirect('/dashboard')
+      }
+    })
+  });
+
 });
 
 //add a new menu item
