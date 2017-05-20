@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var subdomain = require('express-subdomain')
+const fileUpload = require('express-fileupload');
+
 
 var userService = require('./user_service');
 
@@ -27,6 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use('/', index);
 // app.use(subdomain('dashboard', index))
@@ -77,6 +80,30 @@ app.post('/userlogout', function(req, res) {
         return res.redirect('/');
 		}
 	});
+});
+
+app.post('/update-profile-image', function(req, res) {
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files['profile-image'];
+  // console.log(sampleFile);
+  // Upload the user image to the firebase blob store.
+  var userID = userService.firebase.auth().currentUser.uid;
+  var filePath = path.join(__dirname, 'tmp/images/profile/', `${userID}-profileImage.jpg`)
+  sampleFile.mv(filePath, function(err) {
+    if (err)
+      return res.status(500).send(err);
+
+    userService.uploadProfile(userID, filePath, function(error, response) {
+      if (error) {
+        return res.status(500).send(error);
+      } else {
+        return res.redirect('/dashboard')
+      }
+    })
+  });
 });
 
 //add a new menu item
