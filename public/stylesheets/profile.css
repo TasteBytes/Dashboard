@@ -1,9 +1,10 @@
-
 .profile-cover-img {
+    background-image: url(/images/profile_cover.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 40vh;
 }
+
 
 .profile-cover .media {
     position: absolute;
