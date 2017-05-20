@@ -1,4 +1,5 @@
 const firebase = require('firebase');
+var storage = require('@google-cloud/storage')
 
 const config = {
   apiKey: "AIzaSyBrJDvsp_4dcQ8J5YJrFfQwI3-xHQnKGjs",
@@ -11,8 +12,15 @@ const config = {
 
 firebase.initializeApp(config);
 const auth = firebase.auth();
-const rootRef = firebase.database().ref();
 
+var gcsStorage = storage({
+  projectId: 'tastebytes-e421e',
+  keyFilename: 'service-account.json'
+});
+
+// Takes UserID, Name and email
+// Returns nothing
+// Uploads some basic data to the user account database ref
 function writeUserData(userId, name, email) {
   firebase.database().ref('users/' + userId).set({
     fullname: name,
@@ -119,6 +127,16 @@ function signOutUser(callback) {
   });
 }
 
+function uploadUserProfileImage(userID, file, callback) {
+  var ref = gcsStorage.bucket('tastebytes-e421e.appspot.com')
+  ref.upload(file, { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
+    callback(sucess.code)
+  }).catch(function(error) {
+    callback(error);
+  });
+}
+
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // console.log('user is signed in');
@@ -128,9 +146,11 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+
 module.exports = {
   addUser: createUser,
   authenticate: signInUser,
   firebase: firebase,
-  signOut: signOutUser
+  signOut: signOutUser,
+  uploadProfile: uploadUserProfileImage
 }
