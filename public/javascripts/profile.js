@@ -17,5 +17,4 @@ $(document).ready(function() {
   cover_image.addEventListener("change", function(even){
     document.getElementById("uploadCoverForm").submit();
   }, false);
-
 });
