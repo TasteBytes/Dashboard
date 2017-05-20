@@ -136,6 +136,15 @@ function uploadUserProfileImage(userID, file, callback) {
   });
 }
 
+function uploadUserCoverImage(userID, file, callback) {
+  var ref = gcsStorage.bucket('tastebytes-e421e.appspot.com')
+  ref.upload(file, { destination: `${userID}/cover_image.jpg` }).then(function(sucess) {
+    callback(sucess.code)
+  }).catch(function(error) {
+    callback(error);
+  });
+}
+
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
@@ -152,5 +161,6 @@ module.exports = {
   authenticate: signInUser,
   firebase: firebase,
   signOut: signOutUser,
-  uploadProfile: uploadUserProfileImage
+  uploadProfile: uploadUserProfileImage,
+  uploadCover: uploadUserCoverImage
 }
