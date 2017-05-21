@@ -152,6 +152,10 @@ body>.grid {
   padding-top: 6em;
 }
 
+#downloads-side-by-side {
+  border-bottom: none;
+}
+
 #footer-container-downloads  {
   position: absolute;
   right: 0;
