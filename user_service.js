@@ -132,6 +132,7 @@ function signOutUser(callback) {
 }
 
 function uploadUserProfileImage(userID, file, callback) {
+  console.log(`File location is ${file}`);
   if (!file){
     gcsStorageRef.upload(path.join(__dirname, 'public/images/', `default-user.jpg`), { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
       callback(sucess.code)
@@ -148,6 +149,7 @@ function uploadUserProfileImage(userID, file, callback) {
 }
 
 function uploadUserCoverImage(userID, file, callback) {
+  console.log(`File location is ${file}`);
   gcsStorageRef.upload(file, { destination: `${userID}/cover_image.jpg` }).then(function(sucess) {
     // Try to remove the file from the tmp folder..
     fs.unlink(file);
