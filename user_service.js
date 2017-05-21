@@ -1,4 +1,4 @@
-const firebase = require('firebase');
+var fs = require('fs');
 var storage = require('@google-cloud/storage')
 var gcsStorage = storage({
   projectId: 'tastebytes-e421e',
@@ -6,6 +6,7 @@ var gcsStorage = storage({
 });
 const gcsStorageRef = gcsStorage.bucket('tastebytes-e421e.appspot.com');
 
+const firebase = require('firebase');
 const config = {
   apiKey: "AIzaSyBrJDvsp_4dcQ8J5YJrFfQwI3-xHQnKGjs",
   authDomain: "tastebytes-e421e.firebaseapp.com",
@@ -22,12 +23,13 @@ const auth = firebase.auth();
 // Takes UserID, Name and email
 // Returns nothing
 // Uploads some basic data to the user account database ref
-function writeUserData(userId, name, email) {
-  firebase.database().ref('users/' + userId).set({
+function writeUserData(userID, name, email) {
+  console.log("updating a new user profile")
+  firebase.database().ref('users/' + userID).set({
     fullname: name,
     email: email,
   });
-  firebase.database().ref('users/' + userId + '/menus').set({
+  firebase.database().ref('users/' + userID + '/menus').set({
     "Breakfast": {
       "Appetizers": [{
         "Name": "AppetizerName",
@@ -93,6 +95,7 @@ function writeUserData(userId, name, email) {
       }]
     }
   });
+
 }
 
 function createUser(name, email, password, callback) {
@@ -129,16 +132,25 @@ function signOutUser(callback) {
 }
 
 function uploadUserProfileImage(userID, file, callback) {
-  gcsStorageRef.upload(file, { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
-    callback(sucess.code)
-  }).catch(function(error) {
-    callback(error);
-  });
+  if (!file){
+    gcsStorageRef.upload(path.join(__dirname, 'public/images/', `default-user.jpg`), { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
+      callback(sucess.code)
+    }).catch(function(error) {
+      callback(error);
+    });
+  } else {
+    gcsStorageRef.upload(file, { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
+      callback(sucess.code)
+    }).catch(function(error) {
+      callback(error);
+    });
+  }
 }
 
 function uploadUserCoverImage(userID, file, callback) {
-  var ref = gcsStorage.bucket('tastebytes-e421e.appspot.com')
   gcsStorageRef.upload(file, { destination: `${userID}/cover_image.jpg` }).then(function(sucess) {
+    // Try to remove the file from the tmp folder..
+    fs.unlink(file);
     callback(sucess.code)
   }).catch(function(error) {
     callback(error);

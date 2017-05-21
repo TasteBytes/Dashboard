@@ -17,7 +17,7 @@
 </div>
 <div class="pusher">
   <div class="profile-cover" style="position:relative;">
-    <div class="profile-cover-img"></div>
+    <div class="profile-cover-img" style="background-image: url({{coverImage}})"></div>
     <div class="media">
       <div class="ui grid">
         <div class="two wide floated column">
@@ -67,7 +67,6 @@
     <div class="ui grid">
       <div class="three wide column">
         <div class="ui  sticky segment">
-          <h3>West End Tap</h3>
           <i class="food icon"></i> <a href="#">View Menu</a>
           <br>
           <i class="dollar icon"></i> Price Range: $11-30
@@ -119,9 +118,9 @@
               </tr>
             </tbody>
           </table>
-          <div style="border:3px solid red">
-            <h3 style="display:inline">Business Info</h3>
-            <a><i class="settings icon" style="float:right"></i></a>
+          <div>
+            <h3 style="display:inline">Business Information</h3>
+            <a><i class="settings icon" style="float:right" onclick="updateBusinessInfo()"></i></a>
             <p>
               Takes Reservations - Yes
               <br>Delivery - No
@@ -239,31 +238,28 @@
       </div>
     </div>
   </div>
-
-  <div class="ui modal" id="MenuModal">
-    <div class="header" id="editMenuTitle">Add Menu</div>
-    <div class="content">
-      <form class="ui form" action="addmenu" method="post">
-        <div class="field">
-          <label>Name</label>
-          <input type="text" name="MenuName" id="editMenuName">
-          <div class="ui grid">
-            <div class="four wide column">
-              <label>Start</label>
-              <input type="time">
-            </div>
-            <div class="four wide column">
-              <label>End</label>
-              <input type="time">
-            </div>
+</div>
+<div class="ui modal" id="businessInfo">
+  <div class="header" id="editMenuTitle">Update Business Information</div>
+  <div class="content">
+    <form class="ui form" action="updateInfo" method="post">
+      <div class="field">
+        <div class="ui grid">
+          <div class="four wide column">
+            <label>Start</label>
+            <input type="time">
           </div>
-          <div class="ui buttons" style="padding-top:10px">
-            <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
-            <div class="or"></div>
-            <button class="ui positive button" onclick="closeModal()">Save</button>
+          <div class="four wide column">
+            <label>End</label>
+            <input type="time">
           </div>
         </div>
-      </form>
-    </div>
+        <div class="ui buttons" style="padding-top:10px">
+          <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
+          <div class="or"></div>
+          <button class="ui positive button" onclick="closeModal()">Save</button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

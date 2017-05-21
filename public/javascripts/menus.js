@@ -17,7 +17,6 @@ function addCategory(category) {
     $('#CategoryModal').modal('show');
 }
 
-
 function addMenu() {
     $('#MenuModal').modal('show');
 }

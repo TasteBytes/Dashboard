@@ -13,8 +13,8 @@ var userService = require('./user_service');
 var index = require('./routes/index/index');
 var features = require('./routes/index/features');
 var downloads = require('./routes/index/downloads');
-var login = require('./routes/login');
-var register = require('./routes/register');
+var login = require('./routes/auth/login');
+var register = require('./routes/auth/register');
 var dashboard = require('./routes/dashboard');
 var app = express();
 

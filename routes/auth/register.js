@@ -3,8 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'TasteBytes - Login', styles: ['auth.css']});
+  res.render('auth/register', { title: 'register', styles: ['auth.css'] });
 });
-
 
 module.exports = router;

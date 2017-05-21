@@ -18,3 +18,13 @@ $(document).ready(function() {
     document.getElementById("uploadCoverForm").submit();
   }, false);
 });
+
+
+function updateBusinessInfo() {
+  $('#businessInfo').modal('show')
+}
+
+
+function closeModal() {
+    $('.ui.modal').modal('hide');
+}
