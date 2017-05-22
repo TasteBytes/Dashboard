@@ -70,7 +70,7 @@ router.get('/', function(req, res, next) {
         title: 'Dashboard - Profile',
         profileImage: profileNode.profileURL,
         coverImage: profileNode.coverURL,
-        menus: profileNode.menus
+        menus: profileNode.menus,
         styles: ['profile.css'],
         javascript: ['profile.js']
       });
