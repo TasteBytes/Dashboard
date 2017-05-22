@@ -243,17 +243,160 @@
   <div class="header" id="editMenuTitle">Update Business Information</div>
   <div class="content">
     <form class="ui form" action="updateInfo" method="post">
-      <div class="field">
-        <div class="ui grid">
-          <div class="four wide column">
-            <label>Start</label>
-            <input type="time">
-          </div>
-          <div class="four wide column">
-            <label>End</label>
-            <input type="time">
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="reserve" id="switch">
+            <label>Take Reservations</label>
           </div>
         </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="deliver" id="switch">
+            <label>Deliver</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="take-out" id="switch">
+            <label>Take-out</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="accept-credit-cards" id="switch">
+            <label>Accept Credit Cards</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="accept-apple-pay" id="switch">
+            <label>Accept Apple Pay</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="bike-parking" id="switch">
+            <label>Bike Parking</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="wheelchair-accessible" id="switch">
+            <label>Wheelchair Accessible</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="good-for-kids" id="switch">
+            <label>Good For Kids</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="good-for-groups" id="switch">
+            <label>Good For Groups</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <label>Parking</label>
+          <select class="ui dropdown" name="parking">
+            <option value="0">Private</option>
+            <option value="1">Public</option>
+            <option value="2">No Parking</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Alchol</label>
+          <select class="ui dropdown" name="alchol">
+            <option value="0">None</option>
+            <option value="1">Beer</option>
+            <option value="2">Wine</option>
+            <option value="3">Beer & Wine</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Good Meal Time</label>
+          <select class="ui dropdown" name="good-for">
+            <option value="B">Breakfast</option>
+            <option value="L">Lunch</option>
+            <option value="D">Dinner</option>
+          </select>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <label>Attire</label>
+          <select class="ui dropdown" name="attire">
+            <option value="0">Casual</option>
+            <option value="1">Semi-formal</option>
+            <option value="2">Formal</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Ambience</label>
+          <select class="ui dropdown" name="ambience">
+            <option value="0">Casual</option>
+            <option value="1">Trendy</option>
+            <option value="2">Fancy</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Noise Level</label>
+          <select class="ui dropdown" name="noise-level">
+            <option value="0">Quiet</option>
+            <option value="1">Moderate</option>
+            <option value="2">Loud</option>
+          </select>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="caters" id="switch">
+            <label>Cater</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="outdoor-seating" id="switch">
+            <label>Outdoor Seating</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="wi-fi" id="switch">
+            <label>Wi-Fi</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="tv" id="switch">
+            <label>Has TV</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="dogs-allowed" id="switch">
+            <label>Dogs Allowed</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="waiter-service" id="switch">
+            <label>Waiter Service</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
         <div class="ui buttons" style="padding-top:10px">
           <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
           <div class="or"></div>
