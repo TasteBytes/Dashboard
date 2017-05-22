@@ -3,6 +3,13 @@ var cover_image;
 
 $(document).ready(function() {
   $('.menu .item').tab();
+        $('.secondary.menu .item').tab({
+        history: false
+  });
+  $('.tabular.menu .item').tab({
+        history: false
+  });
+  $('.ui.accordion').accordion();
   $(".rating").rating();
   $('#profile-image')
     .dimmer({
