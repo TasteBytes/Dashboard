@@ -82,6 +82,12 @@ app.post('/userlogout', function(req, res) {
 	});
 });
 
+//update business info
+app.post('/updateInfo',function(req,res){
+  console.log(req.body['alchol']);
+  return res.redirect('/dashboard');
+});
+
 app.post('/update-profile-image', function(req, res) {
   if (!req.files)
     return res.status(400).send('No files were uploaded.');
