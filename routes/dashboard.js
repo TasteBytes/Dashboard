@@ -49,11 +49,12 @@ async function getCoverImageURL() {
   return coverURL;
 }
 
-async function getProfileImages() {
+async function getProfileNode() {
   var imageObject = {}
-  let [profileURL, coverURL] = await Promise.all([getProfileImageURL(), getCoverImageURL()]);
+  let [profileURL, coverURL, menusNode] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus()]);
   imageObject.profileURL = profileURL;
   imageObject.coverURL = coverURL;
+  imageObject.menus = menusNode;
   return imageObject
 }
 
@@ -63,12 +64,13 @@ router.get('/', function(req, res, next) {
   if (userService.firebase.auth().currentUser != null) {
     // console.log(`profileURL is ${getProfileURL().then(console.log)}`);
     // var profileURL;s
-    getProfileImages().then(images => {
+    getProfileNode().then(profileNode => {
       res.render('dashboard/dashboard', {
         signedIn: signedIn,
         title: 'Dashboard - Profile',
-        profileImage: images.profileURL,
-        coverImage: images.coverURL,
+        profileImage: profileNode.profileURL,
+        coverImage: profileNode.coverURL,
+        menus: profileNode.menus,
         styles: ['profile.css'],
         javascript: ['profile.js']
       });

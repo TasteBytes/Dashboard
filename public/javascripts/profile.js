@@ -2,6 +2,7 @@ var profile_image;
 var cover_image;
 
 $(document).ready(function() {
+  $('.menu .item').tab();
   $(".rating").rating();
   $('#profile-image')
     .dimmer({
@@ -21,10 +22,15 @@ $(document).ready(function() {
 
 
 function updateBusinessInfo() {
-  $('#businessInfo').modal('show')
+  $('#businessInfo').modal('show');
+}
+
+function viewMenu() {
+    $('#menuTemplate').modal('show');
 }
 
 
 function closeModal() {
     $('.ui.modal').modal('hide');
 }
+
