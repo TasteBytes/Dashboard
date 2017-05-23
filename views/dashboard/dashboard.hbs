@@ -67,7 +67,7 @@
     <div class="ui grid">
       <div class="three wide column">
         <div class="ui  sticky segment">
-          <i class="food icon"></i> <a onclick="viewMenu()">View Menu</a>
+          <i class="food icon"></i> <a  onclick="viewMenu()" style="cursor:pointer;">View Menu</a>
           <br>
           <i class="dollar icon"></i> Price Range: $11-30
           <br>
@@ -430,11 +430,11 @@
             {{#each this}}
               {{#if @first}}
                 <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
-                                    
+
                                     </a>
               {{else}}
                 <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
-                                    
+
                                     </a>
               {{/if}}
             {{/each}}
@@ -452,7 +452,7 @@
                                 <span class="price">{{this.Price}}</span>
                               </header>
                               <p>{{this.Description}}</p>
-                            </section> 
+                            </section>
                         </li>
                     {{/each}}
                 </ul>
@@ -469,7 +469,7 @@
                                 <span class="price">{{this.Price}}</span>
                               </header>
                               <p>{{this.Description}}</p>
-                            </section> 
+                            </section>
                         </li>
                     {{/each}}
                 </ul>
@@ -503,7 +503,7 @@
                                 <span class="price">{{this.Price}}</span>
                               </header>
                               <p>{{this.Description}}</p>
-                            </section> 
+                            </section>
                         </li>
                     {{/each}}
                 </ul>
@@ -520,7 +520,7 @@
                                 <span class="price">{{this.Price}}</span>
                               </header>
                               <p>{{this.Description}}</p>
-                            </section> 
+                            </section>
                         </li>
                     {{/each}}
                 </ul>
