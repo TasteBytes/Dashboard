@@ -94,10 +94,9 @@ app.post('/update-profile-image', function(req, res) {
 
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   let sampleFile = req.files['profile-image'];
-  // console.log(sampleFile);
   // Upload the user image to the firebase blob store.
   var userID = userService.firebase.auth().currentUser.uid;
-  var filePath = path.join(__dirname, 'tmp/images/profile/', `${userID}-profileImage.jpg`)
+  var filePath = `tmp/images/profile/${userID}-profileImage.jpg`;
   sampleFile.mv(filePath, function(err) {
     if (err)
       return res.status(500).send(err);
@@ -191,7 +190,6 @@ app.post('/dashboard/addentree', function(req, res) {
 
 app.post('/dashboard/deleteItem', function(req, res) {
   var path = req.body['item'];
-  console.log(`The path is ${path}`)
   userService.firebase.database().ref(`users/${userService.firebase.auth().currentUser.uid}/menus/${path}`)
   .remove()
   .then(function(){
