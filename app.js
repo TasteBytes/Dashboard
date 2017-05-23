@@ -84,7 +84,9 @@ app.post('/userlogout', function(req, res) {
 
 //update business info
 app.post('/updateInfo',function(req,res){
-  console.log(req.body['alchol']);
+  //this was easy since req.body returns a JSON object
+  var business_info=req.body;
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_info`).set(business_info);
   return res.redirect('/dashboard');
 });
 

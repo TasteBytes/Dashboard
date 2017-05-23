@@ -122,27 +122,27 @@
             <h3 style="display:inline">Business Information</h3>
             <a><i class="settings icon" style="float:right" onclick="updateBusinessInfo()"></i></a>
             <p>
-              Takes Reservations - Yes
-              <br>Delivery - No
-              <br>Take-out - Yes
-              <br>Accepts Credit Cards - Yes
-              <br>Accepts Apple Pay - No
-              <br>Good For - Lunch, Dinner
-              <br>Parking - Private Lot
-              <br>Bike Parking - Yes
-              <br>Wheelchair Accessible - Yes
-              <br>Good for Kids - Yes
-              <br>Good for Groups - Yes
-              <br>Attire - Casual
-              <br>Ambience - Trendy
-              <br>Noise Level - Average
-              <br>Alcohol - Beer &amp; Wine Only
-              <br>Outdoor Seating - Yes
-              <br>Wi-Fi - No
-              <br>Has TV - Yes
-              <br>Dogs Allowed - No
-              <br>Waiter Service - Yes
-              <br>Caters - No
+              Takes Reservations - {{#if business_info.reserve}} Yes {{else}} No {{/if}}
+              <br>Delivery - {{#if business_info.deliver}} Yes {{else}} No {{/if}}
+              <br>Take-out - {{#if business_info.take-out}} Yes {{else}} No {{/if}}
+              <br>Accepts Credit Cards - {{#if business_info.accept-credit-cards}} Yes {{else}} No {{/if}}
+              <br>Accepts Apple Pay - {{#if business_info.accept-apple-pay}} Yes {{else}} No {{/if}}
+              <br>Good For - {{business_info.good-for}}
+              <br>Parking - {{business_info.parking}}
+              <br>Bike Parking - {{#if business_info.bike-parking}} Yes {{else}} No {{/if}}
+              <br>Wheelchair Accessible - {{#if business_info.wheelchair-accessible}} Yes {{else}} No {{/if}}
+              <br>Good for Kids - {{#if business_info.good-for-kids}} Yes {{else}} No {{/if}}
+              <br>Good for Groups - {{#if business_info.good-for-groups}} Yes {{else}} No {{/if}}
+              <br>Attire - {{business_info.attire}}
+              <br>Ambience - {{business_info.ambience}}
+              <br>Noise Level - {{business_info.noise-level}}
+              <br>Alcohol - {{business_info.alchol}}
+              <br>Outdoor Seating - {{#if business_info.outdoor-seating}} Yes {{else}} No {{/if}}
+              <br>Wi-Fi - {{#if business_info.wi-fi}} Yes {{else}} No {{/if}}
+              <br>Has TV - {{#if business_info.tv}} Yes {{else}} No {{/if}}
+              <br>Dogs Allowed - {{#if business_info.dogs-allowed}} Yes {{else}} No {{/if}}
+              <br>Waiter Service - {{#if business_info.waiter-service}} Yes {{else}} No {{/if}}
+              <br>Caters - {{#if business_info.caters}} Yes {{else}} No {{/if}}
             </p>
           </div>
         </div>
@@ -307,26 +307,26 @@
         <div class="inline field">
           <label>Parking</label>
           <select class="ui dropdown" name="parking">
-            <option value="0">Private</option>
-            <option value="1">Public</option>
-            <option value="2">No Parking</option>
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
+            <option value="No Parking">No Parking</option>
           </select>
         </div>
         <div class="inline field">
           <label>Alchol</label>
           <select class="ui dropdown" name="alchol">
-            <option value="0">None</option>
-            <option value="1">Beer</option>
-            <option value="2">Wine</option>
-            <option value="3">Beer & Wine</option>
+            <option value="None">None</option>
+            <option value="Beer">Beer</option>
+            <option value="Wine">Wine</option>
+            <option value="Beer & wine">Beer & Wine</option>
           </select>
         </div>
         <div class="inline field">
           <label>Good Meal Time</label>
           <select class="ui dropdown" name="good-for">
-            <option value="B">Breakfast</option>
-            <option value="L">Lunch</option>
-            <option value="D">Dinner</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
           </select>
         </div>
       </div>
@@ -334,25 +334,25 @@
         <div class="inline field">
           <label>Attire</label>
           <select class="ui dropdown" name="attire">
-            <option value="0">Casual</option>
-            <option value="1">Semi-formal</option>
-            <option value="2">Formal</option>
+            <option value="Casual">Casual</option>
+            <option value="Semi-formal">Semi-formal</option>
+            <option value="Formal">Formal</option>
           </select>
         </div>
         <div class="inline field">
           <label>Ambience</label>
           <select class="ui dropdown" name="ambience">
-            <option value="0">Casual</option>
-            <option value="1">Trendy</option>
-            <option value="2">Fancy</option>
+            <option value="Casual">Casual</option>
+            <option value="Trendy">Trendy</option>
+            <option value="Fancy">Fancy</option>
           </select>
         </div>
         <div class="inline field">
           <label>Noise Level</label>
           <select class="ui dropdown" name="noise-level">
-            <option value="0">Quiet</option>
-            <option value="1">Moderate</option>
-            <option value="2">Loud</option>
+            <option value="Quiet">Quiet</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Loud">Loud</option>
           </select>
         </div>
       </div>

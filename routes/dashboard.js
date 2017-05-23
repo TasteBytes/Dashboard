@@ -13,6 +13,16 @@ async function getMenus() {
   return menus
 };
 
+async function getBusinessInfo() {
+  var business_info;
+  await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_info`)
+  .once('value')
+  .then((snapshot)=>{
+    business_info=snapshot.val();
+  })
+  return business_info;
+}
+
 async function getTables() {
   var tables;
   await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/tables`)
@@ -51,10 +61,11 @@ async function getCoverImageURL() {
 
 async function getProfileNode() {
   var imageObject = {}
-  let [profileURL, coverURL, menusNode] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus()]);
+  let [profileURL, coverURL, menusNode, businessInfo] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus(), getBusinessInfo()]);
   imageObject.profileURL = profileURL;
   imageObject.coverURL = coverURL;
   imageObject.menus = menusNode;
+  imageObject.businessInfo=businessInfo;
   return imageObject
 }
 
@@ -71,6 +82,7 @@ router.get('/', function(req, res, next) {
         profileImage: profileNode.profileURL,
         coverImage: profileNode.coverURL,
         menus: profileNode.menus,
+        business_info:profileNode.businessInfo,
         styles: ['profile.css'],
         javascript: ['profile.js']
       });
