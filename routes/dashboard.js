@@ -23,6 +23,16 @@ async function getBusinessInfo() {
   return business_info;
 }
 
+async function getBusinessHours(){
+  var business_hours;
+  await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_hours`)
+  .once('value')
+  .then((snapshot)=>{
+    business_hours=snapshot.val();
+  })
+  return business_hours;
+}
+
 async function getBusinessSettings() {
   var businessSettings;
   await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/restaurant_settings`)
@@ -147,12 +157,16 @@ router.get('/tables', function(req, res, next) {
 router.get('/settings', function(req, res, next) {
   var signedIn = false;
   if (userService.firebase.auth().currentUser != null) {
-  res.render('dashboard/settings', {
-    signedIn: signedIn,
-    title: 'Dashboard - Settings',
-    styles: ['dashboard.css', 'settings.css'],
-    javascript: ['settings.js']
-  });
+    getBusinessHours()
+    .then(business_hours => {
+      res.render('dashboard/settings', {
+        signedIn: signedIn,
+        business_hours: business_hours,
+        title: 'Dashboard - Settings',
+        styles: ['dashboard.css', 'settings.css'],
+        javascript: ['settings.js']
+      });
+    })
   } else {
       res.redirect('/');
   }
