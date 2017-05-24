@@ -131,6 +131,23 @@ function signOutUser(callback) {
   });
 }
 
+function updateRestaurantSettings(restaurantName, address, phoneNumber, email){
+  firebase.database().ref('users/' + userID + "/restaurant_settings" ).set({
+      full_name : restaurantName,
+      Address : address,
+      phoneNumber : phoneNumber,
+      email : email,
+    });
+}
+
+function updateAccountSettings(fullName, email){
+  firebase.database().ref('users/' + userID + '/account_settings').set({
+      phoneNumber : firstName,
+      restaurantName : email,
+    });
+}
+
+
 function uploadUserProfileImage(userID, file, callback) {
   if (!file){
     gcsStorageRef.upload(path.join(__dirname, 'public/images/', `default-user.jpg`), { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
@@ -174,6 +191,8 @@ module.exports = {
   addUser: createUser,
   authenticate: signInUser,
   signOut: signOutUser,
+  updateRestaurant: updateRestaurantSettings,
+  updateAccount: updateAccountSettings,
   uploadProfile: uploadUserProfileImage,
   uploadCover: uploadUserCoverImage
 }

@@ -23,7 +23,7 @@
       <div class="row">
         <div class="ten wide floated column">
           <h2>Restaurant Settings</h2>
-          <form class="ui form">
+          <form class="ui form" action="update-restaurant-settings" method="post">
             <div class="inline fields">
               <div class="sixteen wide field">
                 <label>Restaurant Name</label>
@@ -39,7 +39,7 @@
             <div class="inline fields">
               <div class="sixteen wide field">
                 <label>Phone Number</label>
-                <input type="text" placeholder="(xxx)-xxx-xxxx">
+                <input type="tel" name="phoneNumber" placeholder="(xxx)-xxx-xxxx">
               </div>
             </div>
             <div class="inline fields">
@@ -48,7 +48,7 @@
                 <input name="email" type="text" placeholder="email@gmail.com">
               </div>
             </div>
-            <div class="ui submit button">Submit</div>
+            <input type="submit" class="ui submit button" value="submit"></input>
           </form>
         </div>
         <div class="five wide floated column">
@@ -57,18 +57,19 @@
       </div>
       <div class="row">
         <div class="ten wide floated column">
+
           <h2>Account Settings</h3>
-          <form class="ui form">
+          <form class="ui form" action="update-account-settings" method="post">
             <div class="inline fields">
               <div class="eight wide field">
                 <label>Name</label>
-                <input type="text" placeholder="First Name">
+                <input name="firstName" type="text" placeholder="First Name">
               </div>
               <div class="three wide field">
-                <input type="text" placeholder="Middle Name">
+                <input name="middleName" type="text" placeholder="Middle Name">
               </div>
               <div class="five wide field">
-                <input type="text" placeholder="Last Name">
+                <input name="lastName" type="text" placeholder="Last Name">
               </div>
             </div>
             <div class="inline fields">
@@ -77,7 +78,7 @@
               <input name="email" type="text" placeholder="email@gmail.com">
             </div>
           </div>
-            <div class="ui submit button">Submit</div>
+            <input type="submit" class="ui submit button" value="submit"></input>
           </form>
         </div>
       </div>
