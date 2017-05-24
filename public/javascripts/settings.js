@@ -12,6 +12,7 @@ function addHours(button) {
     $('#addHours').modal('show');
     var day = button.getAttribute('day');
     $('#input-hours-day').val(day);
+    $('#editHours').text(`Updating hours for ${day}`);
 }
 
 function closeModal() {
