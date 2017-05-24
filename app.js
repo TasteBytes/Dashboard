@@ -110,6 +110,7 @@ app.post('/dashboard/update-account-settings', function(req, res){
     }
   });
   return res.redirect('/dashboard/settings');
+});
 
 //update business info
 app.post('/updateInfo',function(req,res){
