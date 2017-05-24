@@ -134,16 +134,16 @@ router.get('/tables', function(req, res, next) {
 
 router.get('/settings', function(req, res, next) {
   var signedIn = false;
-  // if (userService.firebase.auth().currentUser != null) {
+  if (userService.firebase.auth().currentUser != null) {
   res.render('dashboard/settings', {
     signedIn: signedIn,
     title: 'Dashboard - Settings',
     styles: ['dashboard.css', 'settings.css'],
     javascript: ['settings.js']
   });
-  // } else {
-  //     res.redirect('/');
-  // }
+  } else {
+      res.redirect('/');
+  }
 });
 
 
