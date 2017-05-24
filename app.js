@@ -110,6 +110,13 @@ app.post('/dashboard/update-account-settings', function(req, res){
     }
   });
   return res.redirect('/dashboard/settings');
+
+//update business info
+app.post('/updateInfo',function(req,res){
+  //this was easy since req.body returns a JSON object
+  var business_info=req.body;
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_info`).set(business_info);
+  return res.redirect('/dashboard');
 });
 
 app.post('/update-profile-image', function(req, res) {
@@ -118,10 +125,9 @@ app.post('/update-profile-image', function(req, res) {
 
   // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
   let sampleFile = req.files['profile-image'];
-  // console.log(sampleFile);
   // Upload the user image to the firebase blob store.
   var userID = userService.firebase.auth().currentUser.uid;
-  var filePath = path.join(__dirname, 'tmp/images/profile/', `${userID}-profileImage.jpg`)
+  var filePath = `tmp/images/profile/${userID}-profileImage.jpg`;
   sampleFile.mv(filePath, function(err) {
     if (err)
       return res.status(500).send(err);
@@ -215,7 +221,6 @@ app.post('/dashboard/addentree', function(req, res) {
 
 app.post('/dashboard/deleteItem', function(req, res) {
   var path = req.body['item'];
-  console.log(`The path is ${path}`)
   userService.firebase.database().ref(`users/${userService.firebase.auth().currentUser.uid}/menus/${path}`)
   .remove()
   .then(function(){

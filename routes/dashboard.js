@@ -13,6 +13,16 @@ async function getMenus() {
   return menus
 };
 
+async function getBusinessInfo() {
+  var business_info;
+  await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_info`)
+  .once('value')
+  .then((snapshot)=>{
+    business_info=snapshot.val();
+  })
+  return business_info;
+}
+
 async function getTables() {
   var tables;
   await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/tables`)
@@ -49,11 +59,13 @@ async function getCoverImageURL() {
   return coverURL;
 }
 
-async function getProfileImages() {
+async function getProfileNode() {
   var imageObject = {}
-  let [profileURL, coverURL] = await Promise.all([getProfileImageURL(), getCoverImageURL()]);
+  let [profileURL, coverURL, menusNode, businessInfo] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus(), getBusinessInfo()]);
   imageObject.profileURL = profileURL;
   imageObject.coverURL = coverURL;
+  imageObject.menus = menusNode;
+  imageObject.businessInfo=businessInfo;
   return imageObject
 }
 
@@ -63,12 +75,14 @@ router.get('/', function(req, res, next) {
   if (userService.firebase.auth().currentUser != null) {
     // console.log(`profileURL is ${getProfileURL().then(console.log)}`);
     // var profileURL;s
-    getProfileImages().then(images => {
+    getProfileNode().then(profileNode => {
       res.render('dashboard/dashboard', {
         signedIn: signedIn,
         title: 'Dashboard - Profile',
-        profileImage: images.profileURL,
-        coverImage: images.coverURL,
+        profileImage: profileNode.profileURL,
+        coverImage: profileNode.coverURL,
+        menus: profileNode.menus,
+        business_info:profileNode.businessInfo,
         styles: ['profile.css'],
         javascript: ['profile.js']
       });

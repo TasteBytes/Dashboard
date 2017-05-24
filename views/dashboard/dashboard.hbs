@@ -67,7 +67,7 @@
     <div class="ui grid">
       <div class="three wide column">
         <div class="ui  sticky segment">
-          <i class="food icon"></i> <a href="#">View Menu</a>
+          <i class="food icon"></i> <a  onclick="viewMenu()" style="cursor:pointer;">View Menu</a>
           <br>
           <i class="dollar icon"></i> Price Range: $11-30
           <br>
@@ -122,27 +122,27 @@
             <h3 style="display:inline">Business Information</h3>
             <a><i class="settings icon" style="float:right" onclick="updateBusinessInfo()"></i></a>
             <p>
-              Takes Reservations - Yes
-              <br>Delivery - No
-              <br>Take-out - Yes
-              <br>Accepts Credit Cards - Yes
-              <br>Accepts Apple Pay - No
-              <br>Good For - Lunch, Dinner
-              <br>Parking - Private Lot
-              <br>Bike Parking - Yes
-              <br>Wheelchair Accessible - Yes
-              <br>Good for Kids - Yes
-              <br>Good for Groups - Yes
-              <br>Attire - Casual
-              <br>Ambience - Trendy
-              <br>Noise Level - Average
-              <br>Alcohol - Beer &amp; Wine Only
-              <br>Outdoor Seating - Yes
-              <br>Wi-Fi - No
-              <br>Has TV - Yes
-              <br>Dogs Allowed - No
-              <br>Waiter Service - Yes
-              <br>Caters - No
+              Takes Reservations - {{#if business_info.reserve}} Yes {{else}} No {{/if}}
+              <br>Delivery - {{#if business_info.deliver}} Yes {{else}} No {{/if}}
+              <br>Take-out - {{#if business_info.take-out}} Yes {{else}} No {{/if}}
+              <br>Accepts Credit Cards - {{#if business_info.accept-credit-cards}} Yes {{else}} No {{/if}}
+              <br>Accepts Apple Pay - {{#if business_info.accept-apple-pay}} Yes {{else}} No {{/if}}
+              <br>Good For - {{business_info.good-for}}
+              <br>Parking - {{business_info.parking}}
+              <br>Bike Parking - {{#if business_info.bike-parking}} Yes {{else}} No {{/if}}
+              <br>Wheelchair Accessible - {{#if business_info.wheelchair-accessible}} Yes {{else}} No {{/if}}
+              <br>Good for Kids - {{#if business_info.good-for-kids}} Yes {{else}} No {{/if}}
+              <br>Good for Groups - {{#if business_info.good-for-groups}} Yes {{else}} No {{/if}}
+              <br>Attire - {{business_info.attire}}
+              <br>Ambience - {{business_info.ambience}}
+              <br>Noise Level - {{business_info.noise-level}}
+              <br>Alcohol - {{business_info.alchol}}
+              <br>Outdoor Seating - {{#if business_info.outdoor-seating}} Yes {{else}} No {{/if}}
+              <br>Wi-Fi - {{#if business_info.wi-fi}} Yes {{else}} No {{/if}}
+              <br>Has TV - {{#if business_info.tv}} Yes {{else}} No {{/if}}
+              <br>Dogs Allowed - {{#if business_info.dogs-allowed}} Yes {{else}} No {{/if}}
+              <br>Waiter Service - {{#if business_info.waiter-service}} Yes {{else}} No {{/if}}
+              <br>Caters - {{#if business_info.caters}} Yes {{else}} No {{/if}}
             </p>
           </div>
         </div>
@@ -243,17 +243,160 @@
   <div class="header" id="editMenuTitle">Update Business Information</div>
   <div class="content">
     <form class="ui form" action="updateInfo" method="post">
-      <div class="field">
-        <div class="ui grid">
-          <div class="four wide column">
-            <label>Start</label>
-            <input type="time">
-          </div>
-          <div class="four wide column">
-            <label>End</label>
-            <input type="time">
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="reserve" id="switch">
+            <label>Take Reservations</label>
           </div>
         </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="deliver" id="switch">
+            <label>Deliver</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="take-out" id="switch">
+            <label>Take-out</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="accept-credit-cards" id="switch">
+            <label>Accept Credit Cards</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="accept-apple-pay" id="switch">
+            <label>Accept Apple Pay</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="bike-parking" id="switch">
+            <label>Bike Parking</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="wheelchair-accessible" id="switch">
+            <label>Wheelchair Accessible</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="good-for-kids" id="switch">
+            <label>Good For Kids</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="good-for-groups" id="switch">
+            <label>Good For Groups</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <label>Parking</label>
+          <select class="ui dropdown" name="parking">
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
+            <option value="No Parking">No Parking</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Alchol</label>
+          <select class="ui dropdown" name="alchol">
+            <option value="None">None</option>
+            <option value="Beer">Beer</option>
+            <option value="Wine">Wine</option>
+            <option value="Beer & wine">Beer & Wine</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Good Meal Time</label>
+          <select class="ui dropdown" name="good-for">
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+          </select>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <label>Attire</label>
+          <select class="ui dropdown" name="attire">
+            <option value="Casual">Casual</option>
+            <option value="Semi-formal">Semi-formal</option>
+            <option value="Formal">Formal</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Ambience</label>
+          <select class="ui dropdown" name="ambience">
+            <option value="Casual">Casual</option>
+            <option value="Trendy">Trendy</option>
+            <option value="Fancy">Fancy</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <label>Noise Level</label>
+          <select class="ui dropdown" name="noise-level">
+            <option value="Quiet">Quiet</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Loud">Loud</option>
+          </select>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="caters" id="switch">
+            <label>Cater</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="outdoor-seating" id="switch">
+            <label>Outdoor Seating</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="wi-fi" id="switch">
+            <label>Wi-Fi</label>
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="tv" id="switch">
+            <label>Has TV</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="dogs-allowed" id="switch">
+            <label>Dogs Allowed</label>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui toggle checkbox">
+            <input type="checkbox" name="waiter-service" id="switch">
+            <label>Waiter Service</label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
         <div class="ui buttons" style="padding-top:10px">
           <button class="ui button" type="button" onclick="closeModal()">Cancel</button>
           <div class="or"></div>
@@ -262,4 +405,131 @@
       </div>
     </form>
   </div>
+</div>
+
+<div class="ui modal" id="menuTemplate">
+    <i class="close icon"></i>
+    <div>
+    <div class="ui basic segment">
+    <div class="ui pointing secondary menu">
+      {{#each menus}}
+        {{#if @first}}
+          <a class="active item" data-tab="{{@key}}">{{@key}}
+                        </a>
+        {{else}}
+          <a class="item" data-tab="{{@key}}">{{@key}}
+
+                        </a>
+        {{/if}}
+      {{/each}}
+    </div>
+    {{#each menus}}
+      {{#if @first}}
+        <div class="ui active tab segment" data-tab="{{@key}}">
+          <div class="ui top attached tabular menu">
+            {{#each this}}
+              {{#if @first}}
+                <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+
+                                    </a>
+              {{else}}
+                <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+
+                                    </a>
+              {{/if}}
+            {{/each}}
+          </div>
+          {{#each this}}
+            {{#if @first}}
+              <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                  <ul class="menu">
+                    {{#each this}}
+                        <li class="menu-item">
+                            <section>
+                              <header>
+                                <h1>{{this.Name}}</h1>
+                                <span class="spacer"></span>
+                                <span class="price">{{this.Price}}</span>
+                              </header>
+                              <p>{{this.Description}}</p>
+                            </section>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{else}}
+              <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                <ul class="menu">
+                    {{#each this}}
+                        <li class="menu-item">
+                            <section>
+                              <header>
+                                <h1>{{this.Name}}</h1>
+                                <span class="spacer"></span>
+                                <span class="price">{{this.Price}}</span>
+                              </header>
+                              <p>{{this.Description}}</p>
+                            </section>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="ui tab segment" data-tab="{{@key}}">
+          <div class="ui top attached tabular menu">
+            {{#each this}}
+              {{#if @first}}
+                <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                    </a>
+              {{else}}
+                <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}
+                                    </a>
+              {{/if}}
+            {{/each}}
+          </div>
+          {{#each this}}
+            {{#if @first}}
+              <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                  <ul class="menu">
+                    {{#each this}}
+                        <li class="menu-item">
+                            <section>
+                              <header>
+                                <h1>{{this.Name}}</h1>
+                                <span class="spacer"></span>
+                                <span class="price">{{this.Price}}</span>
+                              </header>
+                              <p>{{this.Description}}</p>
+                            </section>
+                        </li>
+                    {{/each}}
+                </ul>
+                </div>
+            {{else}}
+              <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                <ul class="menu">
+                    {{#each this}}
+                        <li class="menu-item">
+                            <section>
+                              <header>
+                                <h1>{{this.Name}}</h1>
+                                <span class="spacer"></span>
+                                <span class="price">{{this.Price}}</span>
+                              </header>
+                              <p>{{this.Description}}</p>
+                            </section>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+    </div>
 </div>
