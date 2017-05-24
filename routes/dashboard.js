@@ -23,6 +23,16 @@ async function getBusinessInfo() {
   return business_info;
 }
 
+async function getBusinessSettings() {
+  var businessSettings;
+  await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/restaurant_settings`)
+  .once('value')
+  .then((snapshot) => {
+    businessSettings = snapshot.val()
+  })
+  return businessSettings;
+}
+
 async function getTables() {
   var tables;
   await userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/tables`)
@@ -61,11 +71,12 @@ async function getCoverImageURL() {
 
 async function getProfileNode() {
   var imageObject = {}
-  let [profileURL, coverURL, menusNode, businessInfo] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus(), getBusinessInfo()]);
+  let [profileURL, coverURL, menusNode, businessInfo, businessSettings] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus(), getBusinessInfo(), getBusinessSettings()]);
   imageObject.profileURL = profileURL;
   imageObject.coverURL = coverURL;
   imageObject.menus = menusNode;
   imageObject.businessInfo=businessInfo;
+  imageObject.businessSettings = businessSettings;
   return imageObject
 }
 
@@ -83,6 +94,7 @@ router.get('/', function(req, res, next) {
         coverImage: profileNode.coverURL,
         menus: profileNode.menus,
         business_info:profileNode.businessInfo,
+        business_settings: profileNode.businessSettings,
         styles: ['profile.css'],
         javascript: ['profile.js']
       });
