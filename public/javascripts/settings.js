@@ -7,3 +7,11 @@ $(document).ready(function() {
       on: 'hover'
     });
 });
+
+function addHours() {
+    $('#addHours').modal('show');
+}
+
+function closeModal() {
+    $('.ui.modal').modal('hide');
+}
