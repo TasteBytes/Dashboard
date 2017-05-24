@@ -93,43 +93,43 @@
       <div class="seven column row">
         <div class="column">
           <h3>Sunday</h3> <p>11:30 am - 9:30 pm</p>
-          <div class="ui button" style="padding-top:10px" onclick="addHours()">
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Sunday">
             Add Hours
           </div>
         </div>
         <div class="column">
           <h3>Monday</h3> <p>11:30 am - 9:30 pm</p>
-          <div class="ui button" style="padding-top:10px" onclick="addHours()">
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Monday">
             Add Hours
           </div>
         </div>
         <div class="column">
           <h3>Tuesday</h3> <p>11:30 am - 9:30 pm</p>
-          <div class="ui button" style="padding-top:10px" onclick="addHours()">
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Tuesday">
             Add Hours
           </div>
         </div>
         <div class="column">
           <h3>Wednesday</h3> <p>11:30 am - 9:30 pm</p>
-          <div class="ui button" style="padding-top:10px" onclick="addHours()">
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Wednesday">
             Add Hours
           </div>
         </div>
         <div class="column">
           <h3>Thursday</h3> <p>11:30 am - 10:00 pm</p>
-          <div class="ui button" style="padding-top:10px" onclick="addHours()">
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Thursday">
             Add Hours
           </div>
         </div>
         <div class="column">
           <h3>Friday</h3> <p>11:30 am - 10:00 pm</p>
-          <div class="ui button" style="padding-top:10px" onclick="addHours()">
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Friday">
             Add Hours
           </div>
         </div>
         <div class="column">
-          <h3>Saturday</h3> 11:30 am - 10:00 pm
-          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="saturday">
+          <h3>Saturday</h3> <p>11:30 am - 10:00 pm</p>
+          <div class="ui button" style="padding-top:10px" onclick="addHours(this)" day="Saturday">
             Add Hours
           </div>
         </div>
@@ -137,7 +137,6 @@
     </div>
   </div>
 </div>
-
 
 <div class="ui modal" id="businessInfo">
   <div class="header" id="editMenuTitle">Update Business Information</div>
@@ -165,7 +164,7 @@
 </div>
 
 <div class="ui modal" id="addHours">
-  <div class="header" id="editMenuTitle">Update Hours</div>
+  <div class="header" id="editHours"></div>
   <div class="content">
     <form class="ui form" action="updateHours" method="post">
       <div class="field">
