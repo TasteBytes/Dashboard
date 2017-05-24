@@ -82,6 +82,35 @@ app.post('/userlogout', function(req, res) {
 	});
 });
 
+app.post('/dashboard/update-restaurant-settings', function(req, res) {
+  var restaurantName = req.body['restaurantName'];
+  var address = req.body['address'];
+  var phoneNumber = req.body['phoneNumber'];
+  var email = req.body['email'];
+  userService.updateRestaurantSettings(restaurantName, address, phoneNumber, email,
+    function(error, uid) {
+      if (error) {
+        return res.status(500).send(error);
+      } else {
+        return res.redirect('/dashboard');
+    }
+  });
+  return res.redirect('/dashboard/settings')
+});
+
+app.post('/dashboard/update-account-settings', function(req, res){
+  var firstName = req.body['firstName'];
+  var email = req.body['email'];
+  userService.updateAccountSettings(firstName, email,
+    function(error, uid) {
+      if (error) {
+        return res.status(500).send(error);
+      } else {
+        return res.redirect('/dashboard');
+    }
+  });
+  return res.redirect('/dashboard/settings');
+
 //update business info
 app.post('/updateInfo',function(req,res){
   //this was easy since req.body returns a JSON object
