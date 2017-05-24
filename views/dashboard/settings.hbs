@@ -21,7 +21,7 @@
     <div class="ui divider"></div>
     <div class="ui grid">
       <div class="row">
-        <div class="ten wide floated column">
+        <div class="fourteen wide floated column">
           <h2>Restaurant Settings</h2>
           <form class="ui form" action="update-restaurant-settings" method="post">
             <div class="inline fields">
@@ -32,50 +32,48 @@
             </div>
             <div class="inline fields">
               <div class="sixteen wide field">
-                <label>Address Line 1</label>
+                <label>Address</label>
                 <input name="address" type="text" placeholder="334 Ingalls St.">
               </div>
             </div>
             <div class="inline fields">
-              <div class="sixteen wide field">
-                <label>Address Line 2</label>
-                <input name="address" type="text" placeholder="Santa Cruz, CA 95060">
+              <label>City</label>
+              <div class="five wide field">
+                <input name="city" type="text" placeholder="Santa Cruz">
+              </div>
+              <label>State</label>
+              <div class="five wide field">
+                <input name="state" type="text" placeholder="CA">
+              </div>
+              <label>zip</label>
+              <div class="five wide field">
+                <input name="zip" type="text" placeholder="95060">
               </div>
             </div>
             <div class="inline fields">
               <div class="six wide field">
                 <label>Phone Number</label>
-                <input type="tel" name="phoneNumber" placeholder="(xxx)">
+                <input type="tel" name="areaCode" placeholder="(xxx)">
               </div>
               <div class="six wide field">
-                <input type="tel" name="phoneNumber" placeholder="xxx">
+                <input type="tel" name="phoneNumber1" placeholder="xxx">
               </div>
               <div class="six wide field">
-                <input type="tel" name="phoneNumber" placeholder="xxxx">
-              </div>
-            </div>
-            <div class="inline fields">
-              <div class="sixteen wide field">
-                <label>Email</label>
-                <input name="email" type="text" placeholder="email@gmail.com">
+                <input type="tel" name="phoneNumber2" placeholder="xxxx">
               </div>
             </div>
             <input type="submit" class="ui submit button" value="submit"></input>
           </form>
         </div>
-        <div class="five wide floated column">
-          This is the right container
-        </div>
       </div>
       <div class="row">
-        <div class="ten wide floated column">
-
+        <div class="fourteen wide floated column">
           <h2>Account Settings</h3>
           <form class="ui form" action="update-account-settings" method="post">
             <div class="inline fields">
               <div class="sixteen wide field">
                 <label>Full Name</label>
-                <input name="firstName" type="text" placeholder="First Name">
+                <input name="fullName" type="text" placeholder="Full Name">
               </div>
             </div>
             <div class="inline fields">
