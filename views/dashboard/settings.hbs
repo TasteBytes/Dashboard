@@ -1,4 +1,4 @@
-<div class="ui visible inverted labeled icon left inline vertical wide sidebar menu">
+<div class="ui visible inverted labeled icon left inline vertical  sidebar menu">
   <a class="item" href="/dashboard">
     <i class="home icon"></i> Profile
   </a>
@@ -27,19 +27,31 @@
             <div class="inline fields">
               <div class="sixteen wide field">
                 <label>Restaurant Name</label>
-                <input name="restaurantName" type="text">
+                <input name="restaurantName" type="text" placeholder="West End Tap">
               </div>
             </div>
             <div class="inline fields">
               <div class="sixteen wide field">
-                <label>Address</label>
-                <input name="address" type="text">
+                <label>Address Line 1</label>
+                <input name="address" type="text" placeholder="334 Ingalls St.">
               </div>
             </div>
             <div class="inline fields">
               <div class="sixteen wide field">
+                <label>Address Line 2</label>
+                <input name="address" type="text" placeholder="Santa Cruz, CA 95060">
+              </div>
+            </div>
+            <div class="inline fields">
+              <div class="six wide field">
                 <label>Phone Number</label>
-                <input type="tel" name="phoneNumber" placeholder="(xxx)-xxx-xxxx">
+                <input type="tel" name="phoneNumber" placeholder="(xxx)">
+              </div>
+              <div class="six wide field">
+                <input type="tel" name="phoneNumber" placeholder="xxx">
+              </div>
+              <div class="six wide field">
+                <input type="tel" name="phoneNumber" placeholder="xxxx">
               </div>
             </div>
             <div class="inline fields">
@@ -61,15 +73,9 @@
           <h2>Account Settings</h3>
           <form class="ui form" action="update-account-settings" method="post">
             <div class="inline fields">
-              <div class="eight wide field">
-                <label>Name</label>
+              <div class="sixteen wide field">
+                <label>Full Name</label>
                 <input name="firstName" type="text" placeholder="First Name">
-              </div>
-              <div class="three wide field">
-                <input name="middleName" type="text" placeholder="Middle Name">
-              </div>
-              <div class="five wide field">
-                <input name="lastName" type="text" placeholder="Last Name">
               </div>
             </div>
             <div class="inline fields">
