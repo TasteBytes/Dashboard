@@ -173,7 +173,7 @@
         </div>
         <div class="column">
           <h3>Saturday</h3> 11:30 am - 10:00 pm
-          <div class="ui button" onclick="addHours()">
+          <div class="ui button" onclick="addHours(this)" day="saturday">
             Add Hours
           </div>
         </div>
@@ -209,18 +209,18 @@
 </div>
 
 <div class="ui modal" id="addHours">
-  <div class="header" id="editMenuTitle">Update Business Information</div>
+  <div class="header" id="editMenuTitle">Update Hours</div>
   <div class="content">
-    <form class="ui form" action="updateInfo" method="post">
+    <form class="ui form" action="updateHours" method="post">
       <div class="field">
         <div class="ui grid">
           <div class="four wide column">
             <label>Start</label>
-            <input type="time">
+            <input type="time" name="start-time">
           </div>
           <div class="four wide column">
             <label>End</label>
-            <input type="time">
+            <input type="time" name="end-time">
           </div>
         </div>
         <div class="ui buttons" style="padding-top:10px">
@@ -228,6 +228,9 @@
           <div class="or"></div>
           <button class="ui positive button" onclick="closeModal()">Save</button>
         </div>
+      </div>
+      <div class="field">
+        <input type="hidden" name="day" id="input-hours-day">
       </div>
     </form>
   </div>

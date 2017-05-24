@@ -120,6 +120,17 @@ app.post('/updateInfo',function(req,res){
   return res.redirect('/dashboard');
 });
 
+//update business hours
+app.post('/dashboard/updateHours',function(req,res){
+  //this was easy since req.body returns a JSON object
+  var business_hours={};
+  business_hours.startTime=req.body['start-time'];
+  business_hours.endTime=req.body['end-time'];
+  var day = req.body['day'];
+  userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_hours/${day}`).set(business_hours);
+  return res.redirect('/dashboard/settings');
+});
+
 app.post('/update-profile-image', function(req, res) {
   if (!req.files)
     return res.status(400).send('No files were uploaded.');

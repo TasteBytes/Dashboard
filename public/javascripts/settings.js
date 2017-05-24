@@ -8,8 +8,10 @@ $(document).ready(function() {
     });
 });
 
-function addHours() {
+function addHours(button) {
     $('#addHours').modal('show');
+    var day = button.getAttribute('day');
+    $('#input-hours-day').val(day);
 }
 
 function closeModal() {
