@@ -131,33 +131,45 @@ function signOutUser(callback) {
   });
 }
 
-function updateRestaurantSettings(restaurantName, address, phoneNumber, email){
-  firebase.database().ref('users/' + userID + "/restaurant_settings" ).set({
-      full_name : restaurantName,
-      Address : address,
-      phoneNumber : phoneNumber,
-      email : email,
-    });
+function updateRestaurantSettings(restaurantName, address, addressLine2, phoneNumber, email, callback) {
+  firebase.database().ref('users/' + auth.currentUser.uid + "/restaurant_settings").set({
+    full_name: restaurantName,
+    Address: address,
+    Address2: addressLine2,
+    phoneNumber: phoneNumber,
+  }).then(success => {
+    callback(success)
+  }).catch(error => {
+    callback(error)
+  });
 }
 
-function updateAccountSettings(fullName, email){
-  firebase.database().ref('users/' + userID + '/account_settings').set({
-      phoneNumber : firstName,
-      restaurantName : email,
-    });
+function updateAccountSettings(fullName, email,  callback) {
+  firebase.database().ref('users/' + auth.currentUser.uid + '/account_settings').set({
+    phoneNumber: fullName,
+    email: email
+  }).then(success => {
+    callback(success)
+  }).catch(error => {
+    callback(error)
+  });
 }
 
 
 function uploadUserProfileImage(userID, file, callback) {
   console.log(`File location is ${file}`);
-  if (!file){
-    gcsStorageRef.upload(path.join(__dirname, 'public/images/', `default-user.jpg`), { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
+  if (!file) {
+    gcsStorageRef.upload(path.join(__dirname, 'public/images/', `default-user.jpg`), {
+      destination: `${userID}/profile_image.jpg`
+    }).then(function(sucess) {
       callback(sucess.code)
     }).catch(function(error) {
       callback(error);
     });
   } else {
-    gcsStorageRef.upload(file, { destination: `${userID}/profile_image.jpg` }).then(function(sucess) {
+    gcsStorageRef.upload(file, {
+      destination: `${userID}/profile_image.jpg`
+    }).then(function(sucess) {
       callback(sucess.code)
     }).catch(function(error) {
       callback(error);
@@ -167,7 +179,9 @@ function uploadUserProfileImage(userID, file, callback) {
 
 function uploadUserCoverImage(userID, file, callback) {
   console.log(`File location is ${file}`);
-  gcsStorageRef.upload(file, { destination: `${userID}/cover_image.jpg` }).then(function(sucess) {
+  gcsStorageRef.upload(file, {
+    destination: `${userID}/cover_image.jpg`
+  }).then(function(sucess) {
     // Try to remove the file from the tmp folder..
     fs.unlink(file);
     callback(sucess.code)
