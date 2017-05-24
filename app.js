@@ -85,9 +85,9 @@ app.post('/userlogout', function(req, res) {
 app.post('/dashboard/update-restaurant-settings', function(req, res) {
   var restaurantName = req.body['restaurantName'];
   var address = req.body['address'];
-  var phoneNumber = req.body['phoneNumber'];
-  var email = req.body['email'];
-  userService.updateRestaurantSettings(restaurantName, address, phoneNumber, email,
+  var addressLine2 = req.body['city'].concat(', ' + req.body['state']).concat(' ' + req.body['zip']);
+  var phoneNumber = (req.body['areaCode']).concat(' ' + req.body['phoneNumber1']).concat('-' + req.body['phoneNumber2']);
+  userService.updateRestaurant(restaurantName, address, addressLine2, phoneNumber,
     function(error, uid) {
       if (error) {
         return res.status(500).send(error);
@@ -99,9 +99,9 @@ app.post('/dashboard/update-restaurant-settings', function(req, res) {
 });
 
 app.post('/dashboard/update-account-settings', function(req, res){
-  var firstName = req.body['firstName'];
+  var fullName = req.body['fullName'];
   var email = req.body['email'];
-  userService.updateAccountSettings(firstName, email,
+  userService.updateAccount(fullName, email,
     function(error, uid) {
       if (error) {
         return res.status(500).send(error);
