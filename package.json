@@ -16,6 +16,7 @@
     "express-subdomain": "^1.0.5",
     "firebase": "^3.7.5",
     "hbs": "~4.0.1",
+    "moment": "^2.18.1",
     "morgan": "~1.8.1",
     "semantic-ui": "^2.2.10",
     "serve-favicon": "~2.4.2",

@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var subdomain = require('express-subdomain')
 var fileUpload = require('express-fileupload');
+var moment = require('moment');
 
 
 var userService = require('./user_service');
@@ -124,8 +125,9 @@ app.post('/updateInfo',function(req,res){
 app.post('/dashboard/updateHours',function(req,res){
   //this was easy since req.body returns a JSON object
   var business_hours={};
-  business_hours.startTime=change_time(req.body['start-time']);
-  business_hours.endTime=change_time(req.body['end-time']);
+  console.log(`start time is ${req.body['start-time']}`);
+  business_hours.startTime = moment(req.body['start-time'], 'HH:mm').format('h:mm A');
+  business_hours.endTime = moment(req.body['end-time'], 'HH:mm').format('h:mm A');
   var day = req.body['day'];
   userService.firebase.database().ref(`/users/${userService.firebase.auth().currentUser.uid}/business_hours/${day}`).set(business_hours);
   return res.redirect('/dashboard/settings');
@@ -264,19 +266,20 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-function change_time(time){
-  var time_parts = time.split(':');
-  var hours = parseInt(time_parts[0],10);
-  var mins = time_parts[1];
-  var output="";
-  if(hours==24){
-    output=''+0+':'+mins+' AM'
-  } else if(hours>=13){
-    output=''+(hours-12)+':'+mins+' PM';
-  } else if (hours==12) {
-    output=''+(hours)+':'+mins+' PM';
-  } else{
-    output=''+hours+':'+mins+' AM';
-  }
-  return output;
-}
+//
+// function change_time(time){
+//   var time_parts = time.split(':');
+//   var hours = parseInt(time_parts[0],10);
+//   var mins = time_parts[1];
+//   var output="";
+//   if(hours==24){
+//     output=''+0+':'+mins+' AM'
+//   } else if(hours>=13){
+//     output=''+(hours-12)+':'+mins+' PM';
+//   } else if (hours==12) {
+//     output=''+(hours)+':'+mins+' PM';
+//   } else{
+//     output=''+hours+':'+mins+' AM';
+//   }
+//   return output;
+// }
