@@ -33,7 +33,11 @@
               </div>
             </div>
             <div class="profile-image">
-              <img class="ui medium rounded image dimmable" src='{{profileImage}}'>
+              {{#if profileImage}}
+                <img class="ui medium rounded image dimmable" src='{{profileImage}}'>
+              {{else}}
+                <img class="ui medium rounded image dimmable" src='/images/default-user.jpg'>
+              {{/if}}
             </div>
           </div>
         </div>

@@ -96,6 +96,14 @@ function writeUserData(userID, name, email) {
     }
   });
 
+  uploadUserProfileImage(userID, 'public/images/default-profile.jpg', function(error, response) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('there was no error');
+    }
+  });
+
 }
 
 function createUser(name, email, password, callback) {

@@ -82,6 +82,7 @@ async function getCoverImageURL() {
 async function getProfileNode() {
   var imageObject = {}
   let [profileURL, coverURL, menusNode, businessInfo, businessSettings] = await Promise.all([getProfileImageURL(), getCoverImageURL(), getMenus(), getBusinessInfo(), getBusinessSettings()]);
+  console.log(profileURL);
   imageObject.profileURL = profileURL;
   imageObject.coverURL = coverURL;
   imageObject.menus = menusNode;
