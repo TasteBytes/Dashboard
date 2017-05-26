@@ -96,6 +96,37 @@ function writeUserData(userID, name, email) {
     }
   });
 
+  firebase.database().ref('users/' + userID + '/business_hours').set({
+    "Friday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  },
+  "Monday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  },
+  "Saturday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  },
+  "Sunday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  },
+  "Thursday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  },
+  "Tuesday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  },
+  "Wednesday" : {
+    "endTime" : "1:00 PM",
+    "startTime" : "1:00 AM"
+  }
+  });
+
   uploadUserProfileImage(userID, 'public/images/default-profile.jpg', function(error, response) {
     if (error) {
       console.log(error);
